@@ -17,7 +17,11 @@
 
 部署改用代码快照和逐文件哈希，不携带 Git submodule 的 `.git` 指针。快照记录课程仓库 commit、官方代码 commit，每次运行前校验所有部署文件。只有已提交且工作区干净的版本可部署。
 
-H20 重试及正式训练状态将在验证后补充；目前不报告 GPU 训练速度或已完成的正式 loss。
+`h20-smoke-002` 已通过：同一 d8、context 1024、batch 64、BF16 autocast 和 `torch.compile`，完成 32/32 steps；32 条逐步 loss、2 条 validation 及 RMS 日志均写入。总耗时 175.51 秒，峰值 allocated 显存 14.39 GiB。首次 step 耗时 93.90 秒，包含编译；短 run 的总时间不能用来估计稳定训练吞吐。可复核记录见 `h20_smoke.json`。
+
+正式 baseline 已按同一冻结代码版本启动：`a1-baseline-001`，600,000 序列、9375 steps、LR=0.003、model/data seed=42。当前尚无最终 validation loss；短检查结果不作为正式实验结论。
+
+已从 GitHub 重新 clone 并初始化 submodule，确认官方 checkout 提交与 lock 一致、dry-run 入口可用。
 
 ## 本地或其他 GPU 环境
 

@@ -14,4 +14,3 @@ materials/sources.json
 .env
 .env.*
 !.env.example
-

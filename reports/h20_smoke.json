@@ -1,0 +1,59 @@
+{
+  "attempt": "h20-smoke-002",
+  "state": "complete",
+  "scope": "32-step DCLM d8 pipeline check, not formal A1 result",
+  "date_beijing": "2026-10-15",
+  "lab_commit": "caf7220ccd1c0e80c9b3e0c91385a144fc3a4845",
+  "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+  "environment": {
+    "python": "3.12.6 (main, Nov  6 2024, 17:34:35) [GCC 8.5.0 20210514 (Tencent 8.5.0-23)]",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "wandb": "0.22.3",
+    "numpy": "1.26.4",
+    "gpu": "NVIDIA H20",
+    "capability": [
+      9,
+      0
+    ]
+  },
+  "compile_cache": "node-local temporary directory",
+  "input_tokens": 2097152,
+  "batch_size": 64,
+  "status": {
+    "state": "complete",
+    "run_id": "a1-smoke",
+    "seconds": 175.50934283342212,
+    "cpu_check": false,
+    "final": {
+      "completed_steps": 32,
+      "total_steps": 32,
+      "train_loss": 6.900911,
+      "val_loss": 6.894439,
+      "source": "upstream_stdout_6_decimal_places"
+    },
+    "finite": true,
+    "peak_cuda_memory_gib": 14.385428428649902
+  },
+  "validation": [
+    {
+      "completed_steps": 17,
+      "total_steps": 32,
+      "train_loss": 6.916063,
+      "val_loss": 6.936319,
+      "source": "upstream_stdout_6_decimal_places"
+    },
+    {
+      "completed_steps": 32,
+      "total_steps": 32,
+      "train_loss": 6.900911,
+      "val_loss": 6.894439,
+      "source": "upstream_stdout_6_decimal_places"
+    }
+  ],
+  "train_metric_rows": 32,
+  "timing": [
+    "Timing summary: startup=11.43s, first_step=93.90s, training=164.07s, total=175.50s"
+  ],
+  "plan_sha256": "5c795c86056055255bcd878bfda4681fe1cac3712ce0786dddd24e33eebe7606"
+}

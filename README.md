@@ -4,6 +4,8 @@
 
 当前先完成 **A1 的第一轮学习率实验**：预测 → 固定配置 → 运行 → 对照曲线 → 解释偏差 → 设计留出题。我们的目标是积累可迁移的 LLM 训练经验，每轮都保留失败结果和结论边界。
 
+**2026-10-15 状态**：完整数据已校验；H20 上的 32-step d8 检查通过，峰值显存 14.39 GiB；正式 baseline 已启动，尚无最终 loss。见 [环境与验证记录](reports/setup.md) 和 [H20 检查结果](reports/h20_smoke.json)。
+
 ## 目录与 Git
 
 - `upstream/a1/`：官方 `a1_release` Git submodule，固定到 `baafc3f2d364e5ddbba75f0fe8d1cb29326920e5`。
