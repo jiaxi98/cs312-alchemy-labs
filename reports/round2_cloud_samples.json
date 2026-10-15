@@ -1,0 +1,110 @@
+[
+  {
+    "name": "P1 batch×lr · b=128 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mogg7iyq/chart",
+    "id": "trzkc3pnsasxu299povtt",
+    "latest": {
+      "train_loss": {
+        "index": 771,
+        "data": 3.3812365531921387,
+        "timestamp": 1792058118000
+      },
+      "val_loss": {
+        "index": 752,
+        "data": 3.4126548767089844,
+        "timestamp": 1792058112000
+      }
+    }
+  },
+  {
+    "name": "P1 schedule · cos lr=0.003 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/p5jnw7lu/chart",
+    "id": "b55vfcwrqmp8fngcals9l",
+    "latest": {
+      "train_loss": {
+        "index": 1523,
+        "data": 3.380479335784912,
+        "timestamp": 1792058118000
+      },
+      "val_loss": {
+        "index": 1504,
+        "data": 3.3779666423797607,
+        "timestamp": 1792058115000
+      }
+    }
+  },
+  {
+    "name": "P2 d5 · linear lr=0.003 drop=0.2 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/aern2g96/chart",
+    "id": "qw6yar8mru6n56ew0n7ou",
+    "latest": {
+      "train_loss": {
+        "index": 3721,
+        "data": 3.6255760192871103,
+        "timestamp": 1792058120000
+      },
+      "val_loss": {
+        "index": 3666,
+        "data": 3.495671510696411,
+        "timestamp": 1792058116000
+      }
+    }
+  },
+  {
+    "name": "P3 init · seed=12",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/v0e48c9q/chart",
+    "id": "o2sde8k97nbtd1yyt88jh",
+    "latest": {
+      "train_loss": {
+        "index": 1503,
+        "data": 3.3560993671417236,
+        "timestamp": 1792058120000
+      },
+      "val_loss": {
+        "index": 1410,
+        "data": 3.3844785690307617,
+        "timestamp": 1792058117000
+      }
+    }
+  },
+  {
+    "name": "P3 data · seed=13",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/j1bktrwn/chart",
+    "id": "qenxwktteriv00e6rkvby",
+    "latest": {
+      "train_loss": {
+        "index": 1523,
+        "data": 3.359609603881836,
+        "timestamp": 1792058121000
+      },
+      "val_loss": {
+        "index": 1504,
+        "data": 3.3734192848205566,
+        "timestamp": 1792058118000
+      }
+    }
+  },
+  {
+    "name": "P4 token=control · s=47",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/aigjtnkn/chart",
+    "id": "y2v24ygh0logxet22gytu",
+    "latest": {
+      "train_loss": {
+        "index": 1523,
+        "data": 3.3785014152526855,
+        "timestamp": 1792058121000
+      },
+      "val_loss": {
+        "index": 1504,
+        "data": 3.3738138675689697,
+        "timestamp": 1792058118000
+      }
+    }
+  }
+]

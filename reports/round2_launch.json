@@ -1,0 +1,347 @@
+{
+  "checked_at_beijing": "2026-10-15T17:55:22.902102+08:00",
+  "campaign": "a1-r2-20261015",
+  "project": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs",
+  "target_configurations": 233,
+  "groups": {
+    "p1-warmup": 10,
+    "p1-weight-decay": 10,
+    "p1-batch-lr": 54,
+    "p1-wd-lr": 16,
+    "p1-warmup-lr": 12,
+    "p1-schedule": 30,
+    "p1-momentum": 9,
+    "p2-scaling-pilot": 32,
+    "p3-init": 10,
+    "p3-data": 10,
+    "p3-joint": 10,
+    "p3-hardware": 8,
+    "p3-recipe-variance": 10,
+    "p4-token": 12
+  },
+  "main_code_commit": "65f35da80bd595859f9e97836725f54871dc11be",
+  "repair_code_commit": "9e8155312b09b8ea4805b66db5dc7955c8591398",
+  "main_attempt_states": {
+    "running": 160,
+    "failed": 3
+  },
+  "active_runs_with_training_steps": 160,
+  "active_runs_with_validation": 160,
+  "minimum_active_completed_steps": 780,
+  "gpu_probe_beijing": "2026-10-15T17:51:24.300884+08:00",
+  "cuda_process_gpus": 160,
+  "median_gpu_utilization_percent": 98.0,
+  "hosts": [
+    {
+      "host": "box1_0",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        97,
+        97,
+        97,
+        95,
+        99,
+        97,
+        99,
+        96
+      ]
+    },
+    {
+      "host": "box1_1",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        93,
+        93,
+        96,
+        98,
+        98,
+        97
+      ]
+    },
+    {
+      "host": "box2_0",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        94,
+        98,
+        96,
+        96,
+        98,
+        93
+      ]
+    },
+    {
+      "host": "box2_1",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        96,
+        97,
+        96,
+        98,
+        94,
+        98,
+        93,
+        98
+      ]
+    },
+    {
+      "host": "h3_0",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        97,
+        98,
+        98,
+        95,
+        98,
+        98,
+        97,
+        97
+      ]
+    },
+    {
+      "host": "h3_1",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        98,
+        98,
+        97,
+        98,
+        96,
+        98
+      ]
+    },
+    {
+      "host": "h3_2",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        96,
+        96,
+        94,
+        98,
+        98,
+        97,
+        96,
+        97
+      ]
+    },
+    {
+      "host": "h3_3",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        94,
+        97,
+        98,
+        98,
+        98,
+        97,
+        94
+      ]
+    },
+    {
+      "host": "h3_4",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        95,
+        98,
+        95,
+        98,
+        96,
+        98,
+        98,
+        98
+      ]
+    },
+    {
+      "host": "h3_5",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        95,
+        98,
+        98,
+        98,
+        95,
+        100,
+        98,
+        98
+      ]
+    },
+    {
+      "host": "h3_6",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        96,
+        98,
+        95,
+        95,
+        99,
+        97
+      ]
+    },
+    {
+      "host": "h3_7",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        95,
+        98,
+        98,
+        98,
+        99,
+        98
+      ]
+    },
+    {
+      "host": "hy_0",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        98,
+        98,
+        98,
+        94,
+        96,
+        98
+      ]
+    },
+    {
+      "host": "hy_1",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        96,
+        93,
+        98,
+        98,
+        98,
+        98,
+        98
+      ]
+    },
+    {
+      "host": "hy_2",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        94,
+        99,
+        98,
+        98,
+        98,
+        99,
+        98,
+        96
+      ]
+    },
+    {
+      "host": "hy_3",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        94,
+        98,
+        98,
+        95,
+        98,
+        96
+      ]
+    },
+    {
+      "host": "hy_4",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        96,
+        98,
+        99,
+        99,
+        98,
+        97,
+        93,
+        93
+      ]
+    },
+    {
+      "host": "hy_5",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        98,
+        98,
+        98,
+        98,
+        94,
+        98,
+        98
+      ]
+    },
+    {
+      "host": "hy_6",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        98,
+        96,
+        98,
+        98,
+        98,
+        98,
+        92,
+        95
+      ]
+    },
+    {
+      "host": "hy_7",
+      "cuda_process_gpus": 8,
+      "gpu_utilization_percent": [
+        96,
+        98,
+        96,
+        87,
+        96,
+        96,
+        98,
+        92
+      ]
+    }
+  ],
+  "pending_main_configs": 70,
+  "repair_queue": {
+    "campaign": "a1-r2-repairs-v2",
+    "count": 3,
+    "state": "waiting_for_existing_gpu_locks",
+    "repaired_ids": [
+      "a1-r2-133-fix1",
+      "a1-r2-134-fix1",
+      "a1-r2-135-fix1"
+    ],
+    "correction": "beta1 integer 0 to float 0.0; old attempts failed before first optimizer step"
+  },
+  "sample_cloud_readback": "round2_cloud_samples.json",
+  "prediction_protocol": "../notes/a1_round2_predictions.md",
+  "failed_before_training": [
+    {
+      "id": "a1-r2-133",
+      "state": "failed",
+      "steps": 0
+    },
+    {
+      "id": "a1-r2-135",
+      "state": "failed",
+      "steps": 0
+    },
+    {
+      "id": "a1-r2-134",
+      "state": "failed",
+      "steps": 0
+    }
+  ]
+}
