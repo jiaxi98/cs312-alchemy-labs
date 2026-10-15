@@ -11,6 +11,7 @@ import math
 from numbers import Real
 import os
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,6 +31,16 @@ def api_key():
 
 def serializable(value):
     return json.loads(json.dumps(value, default=str))
+
+
+def display_name(run_id, config):
+    """Keep the first A1 sweep readable; execution identity belongs in config."""
+    if not re.fullmatch(r"a1-(?:lr-[0-9.e+-]+-s\d+|baseline-s\d+)", run_id):
+        return run_id
+    model_seed, data_seed = config["model_seed"], config["data_seed"]
+    seeds = (f"seed={model_seed}" if model_seed == data_seed
+             else f"model_seed={model_seed} · data_seed={data_seed}")
+    return f"A1 · lr={config['learning_rate']:g} · {seeds}"
 
 
 class ScalarRecorder:

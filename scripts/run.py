@@ -206,12 +206,13 @@ def main():
         started_at=datetime.now(timezone.utc).isoformat(), cpu_check=args.cpu_check))
     transcript = Transcript(folder)
     if args.tracker.startswith("swanlab"):
-        from tracking import SwanLabMirror
+        from tracking import SwanLabMirror, display_name
         tracking = SwanLabMirror(folder,
             mode=args.tracker.removeprefix("swanlab-"), project=args.swanlab_project,
-            workspace=args.swanlab_workspace, experiment_name=f"{args.run_id}--{folder.name}",
+            workspace=args.swanlab_workspace, experiment_name=display_name(args.run_id, metadata),
             group="a1-" + selected["group"], tags=config.wandb_tags,
-            config=dict(train=metadata, provenance=environment, scope=selected["purpose"]),
+            config=dict(train=metadata, provenance=environment, scope=selected["purpose"],
+                        identity=dict(run_id=args.run_id, attempt=folder.name)),
             tokens_per_step=config.batch_size * config.train_dataset.context_length)
     else:
         tracking = nullcontext()

@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "960r1pnt",
+    "cuid": "",
+    "old_name": "",
+    "new_name": "A1 · lr=0.003 · seed=42",
+    "state": "",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/960r1pnt/chart",
+    "skipped": "resource_deleted_before_rename"
+  },
+  {
+    "slug": "5lgewe11",
+    "cuid": "cd5k7v53qx1fo2eamqcpw",
+    "old_name": "a1-baseline-s43--a1-baseline-s43-001",
+    "new_name": "A1 · lr=0.003 · seed=43",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/5lgewe11/chart",
+    "verified": true
+  },
+  {
+    "slug": "m0sk8hhs",
+    "cuid": "lc9h1431bvkfmbo62gno6",
+    "old_name": "a1-baseline-s44--a1-baseline-s44-001",
+    "new_name": "A1 · lr=0.003 · seed=44",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/m0sk8hhs/chart",
+    "verified": true
+  },
+  {
+    "slug": "duknp5ch",
+    "cuid": "ydt1p013xrdeuzci31di7",
+    "old_name": "a1-lr-0.0001-s42--a1-lr-0.0001-s42-001",
+    "new_name": "A1 · lr=0.0001 · seed=42",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/duknp5ch/chart",
+    "verified": true
+  },
+  {
+    "slug": "m4t7ps63",
+    "cuid": "ipgp7zngf3yyo4nfmy3qq",
+    "old_name": "a1-lr-0.0003-s42--a1-lr-0.0003-s42-001",
+    "new_name": "A1 · lr=0.0003 · seed=42",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/m4t7ps63/chart",
+    "verified": true
+  },
+  {
+    "slug": "hb4ued27",
+    "cuid": "ydcnte20dz5ho7vz4b3uf",
+    "old_name": "a1-lr-0.001-s42--a1-lr-0.001-s42-001",
+    "new_name": "A1 · lr=0.001 · seed=42",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hb4ued27/chart",
+    "verified": true
+  },
+  {
+    "slug": "4g4e59v7",
+    "cuid": "gf1mn9rbj314q9wpzom7w",
+    "old_name": "a1-lr-0.01-s42--a1-lr-0.01-s42-001",
+    "new_name": "A1 · lr=0.01 · seed=42",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/4g4e59v7/chart",
+    "verified": true
+  },
+  {
+    "slug": "67s2putt",
+    "cuid": "0wvu4e6re6teth1t3tlea",
+    "old_name": "a1-lr-0.03-s42--a1-lr-0.03-s42-001",
+    "new_name": "A1 · lr=0.03 · seed=42",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/67s2putt/chart",
+    "verified": true
+  }
+]

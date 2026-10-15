@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import time
 
-from tracking import ScalarRecorder, api_key, serializable, settings
+from tracking import ScalarRecorder, api_key, display_name, serializable, settings
 
 
 def read_history(filename, *, allow_partial=False):
@@ -64,10 +64,11 @@ def main():
     tracking = settings()
     run = swanlab.init(project=args.project or tracking.get("project", "cs312-alchemy-labs"),
         workspace=args.workspace or tracking.get("workspace"),
-        experiment_name=f"{status['run_id']}--{root.name}", group="a1-lr",
+        experiment_name=display_name(status["run_id"], config), group="a1-lr",
         tags=["a1", "lr", "imported-wandb"], mode=args.mode, public=False,
         logdir=str(output / "swanlog"),
         config={"train": config, "provenance": environment,
+                "identity": {"run_id": status["run_id"], "attempt": root.name},
                 "import": {"source": "W&B binary records", "x_axis": "optimizer_step + 1"}},
         settings=swanlab.Settings(interactive=False,
             terminal=swanlab.Settings.Terminal(proxy_type="none"),

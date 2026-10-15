@@ -10,6 +10,8 @@
 
 ## 新实验
 
+第一轮正式实验的展示名使用 `A1 · lr=0.001 · seed=42`。其中 `seed` 表示 model/data seed 相同；两者不同时分别展示。`identity.run_id` 保存实验配置 ID，`identity.attempt` 保存执行批次，例如 `a1-lr-0.001-s42-001`。批次不再重复拼入展示名，重跑时仍可通过配置和独立 SwanLab run ID 区分。
+
 `scripts/run.py` 和 `scripts/cluster.py run` 默认使用 `--tracker swanlab-online`。显式的 `--tracker swanlab-offline` 用于没有网络时先写离线数据；旧的 `--tracker wandb-offline` 保留以便复现实验。
 
 在线实验创建失败会报错，不静默切成另一个记录平台。在线运行同时保留本地 SwanLab、W&B 和 JSONL 备份。
