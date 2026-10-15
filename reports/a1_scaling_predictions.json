@@ -1,0 +1,326 @@
+{
+  "created_at_beijing": "2026-10-15T22:27:55.329444+08:00",
+  "input_sha256": "469cb9c52cb4794a9a8262913f69212c5fd04db32528df0375e5af57b2aecc20",
+  "formula": "L=a*C^(-alpha)+epsilon; C=(depth/8)^3 at fixed token budget",
+  "fit_inputs": "Only d4-d7. Source losses rounded to 6 decimal places by the training transcript.",
+  "limitations": [
+    "Three-parameter fit to four scales is weakly constrained.",
+    "d20 is an illustrative extrapolation, not a calibrated confidence statement.",
+    "d8 baseline/high-LR/constant results were previously observed; d9 is genuinely held out.",
+    "These are assistant preregistrations, not the learner's own predictions."
+  ],
+  "fits": [
+    {
+      "schedule": "linear",
+      "learning_rate": 0.003,
+      "dropout": 0,
+      "seed": 42,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.290913,
+          "id": "a1-r2-142"
+        },
+        {
+          "depth": 5,
+          "loss": 3.152776,
+          "id": "a1-r2-150"
+        },
+        {
+          "depth": 6,
+          "loss": 3.05577,
+          "id": "a1-r2-158"
+        },
+        {
+          "depth": 7,
+          "loss": 2.984634,
+          "id": "a1-r2-166"
+        }
+      ],
+      "fit": {
+        "a": 0.5047429706946096,
+        "alpha": 0.25993166097174764,
+        "epsilon": 2.424376767368149,
+        "sse": 1.4538354833670042e-07,
+        "predictions": {
+          "d8": 2.9291197380627585,
+          "d9": 2.884826048302546,
+          "d20": 2.671411863263119
+        }
+      }
+    },
+    {
+      "schedule": "linear",
+      "learning_rate": 0.003,
+      "dropout": 0,
+      "seed": 43,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.289731,
+          "id": "a1-r2-143"
+        },
+        {
+          "depth": 5,
+          "loss": 3.160326,
+          "id": "a1-r2-151"
+        },
+        {
+          "depth": 6,
+          "loss": 3.060155,
+          "id": "a1-r2-159"
+        },
+        {
+          "depth": 7,
+          "loss": 2.984967,
+          "id": "a1-r2-167"
+        }
+      ],
+      "fit": {
+        "a": 1.0647268319207412,
+        "alpha": 0.1428435702975248,
+        "epsilon": 1.857014030606387,
+        "sse": 3.009914927753292e-06,
+        "predictions": {
+          "d8": 2.921740862527128,
+          "d9": 2.869333925319322,
+          "d20": 2.575980578441708
+        }
+      }
+    },
+    {
+      "schedule": "constant",
+      "learning_rate": 0.003,
+      "dropout": 0,
+      "seed": 42,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.415722,
+          "id": "a1-r2-144"
+        },
+        {
+          "depth": 5,
+          "loss": 3.328308,
+          "id": "a1-r2-152"
+        },
+        {
+          "depth": 6,
+          "loss": 3.249663,
+          "id": "a1-r2-160"
+        },
+        {
+          "depth": 7,
+          "loss": 3.210055,
+          "id": "a1-r2-168"
+        }
+      ],
+      "fit": {
+        "a": 0.3793982643648819,
+        "alpha": 0.24235186265522127,
+        "epsilon": 2.7890131321536016,
+        "sse": 8.81784516740089e-05,
+        "predictions": {
+          "d8": 3.1684113965184837,
+          "d9": 3.137273947540451,
+          "d20": 2.9838947304635344
+        }
+      }
+    },
+    {
+      "schedule": "constant",
+      "learning_rate": 0.003,
+      "dropout": 0,
+      "seed": 43,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.417845,
+          "id": "a1-r2-145"
+        },
+        {
+          "depth": 5,
+          "loss": 3.325589,
+          "id": "a1-r2-153"
+        },
+        {
+          "depth": 6,
+          "loss": 3.245672,
+          "id": "a1-r2-161"
+        },
+        {
+          "depth": 7,
+          "loss": 3.192032,
+          "id": "a1-r2-169"
+        }
+      ],
+      "fit": {
+        "a": 1.0983465770288232,
+        "alpha": 0.10801566797233102,
+        "epsilon": 2.043642566505493,
+        "sse": 2.4376605486810923e-05,
+        "predictions": {
+          "d8": 3.141989143534316,
+          "d9": 3.100858206459317,
+          "d20": 2.8598266726639725
+        }
+      }
+    },
+    {
+      "schedule": "linear",
+      "learning_rate": 0.003,
+      "dropout": 0.2,
+      "seed": 42,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.447421,
+          "id": "a1-r2-146"
+        },
+        {
+          "depth": 5,
+          "loss": 3.324403,
+          "id": "a1-r2-154"
+        },
+        {
+          "depth": 6,
+          "loss": 3.215763,
+          "id": "a1-r2-162"
+        },
+        {
+          "depth": 7,
+          "loss": 3.128642,
+          "id": "a1-r2-170"
+        }
+      ],
+      "fit": {
+        "a": 3.058131874038006,
+        "alpha": 0.0579298274856238,
+        "epsilon": 0.0008372778907601659,
+        "sse": 4.0349575518389235e-05,
+        "predictions": {
+          "d8": 3.0589691519287663,
+          "d9": 2.997007193028714,
+          "d20": 2.608782235893159
+        }
+      }
+    },
+    {
+      "schedule": "linear",
+      "learning_rate": 0.003,
+      "dropout": 0.2,
+      "seed": 43,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.448417,
+          "id": "a1-r2-147"
+        },
+        {
+          "depth": 5,
+          "loss": 3.321916,
+          "id": "a1-r2-155"
+        },
+        {
+          "depth": 6,
+          "loss": 3.213704,
+          "id": "a1-r2-163"
+        },
+        {
+          "depth": 7,
+          "loss": 3.128736,
+          "id": "a1-r2-171"
+        }
+      ],
+      "fit": {
+        "a": 3.0494232028733856,
+        "alpha": 0.05826152179348279,
+        "epsilon": 0.007995223411466662,
+        "sse": 1.6133071016429655e-05,
+        "predictions": {
+          "d8": 3.0574184262848525,
+          "d9": 2.9952827748106596,
+          "d20": 2.6061434782035846
+        }
+      }
+    },
+    {
+      "schedule": "linear",
+      "learning_rate": 0.03,
+      "dropout": 0,
+      "seed": 42,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.318646,
+          "id": "a1-r2-148"
+        },
+        {
+          "depth": 5,
+          "loss": 3.208659,
+          "id": "a1-r2-156"
+        },
+        {
+          "depth": 6,
+          "loss": 3.105023,
+          "id": "a1-r2-164"
+        },
+        {
+          "depth": 7,
+          "loss": 3.066514,
+          "id": "a1-r2-172"
+        }
+      ],
+      "fit": {
+        "a": 0.2909275991367895,
+        "alpha": 0.3431869322443537,
+        "epsilon": 2.726981254644707,
+        "sse": 0.0003051138800616448,
+        "predictions": {
+          "d8": 3.0179088537814964,
+          "d9": 2.9846847393670446,
+          "d20": 2.8402425412137204
+        }
+      }
+    },
+    {
+      "schedule": "linear",
+      "learning_rate": 0.03,
+      "dropout": 0,
+      "seed": 43,
+      "points": [
+        {
+          "depth": 4,
+          "loss": 3.303843,
+          "id": "a1-r2-149"
+        },
+        {
+          "depth": 5,
+          "loss": 3.1968,
+          "id": "a1-r2-157"
+        },
+        {
+          "depth": 6,
+          "loss": 3.109342,
+          "id": "a1-r2-165"
+        },
+        {
+          "depth": 7,
+          "loss": 3.062083,
+          "id": "a1-r2-173"
+        }
+      ],
+      "fit": {
+        "a": 0.3387934950416699,
+        "alpha": 0.29592049337444787,
+        "epsilon": 2.678044367863703,
+        "sse": 6.545119659976326e-05,
+        "predictions": {
+          "d8": 3.0168378629053727,
+          "d9": 2.9832017103310515,
+          "d20": 2.8282406740279935
+        }
+      }
+    }
+  ]
+}

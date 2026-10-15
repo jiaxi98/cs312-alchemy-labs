@@ -138,7 +138,7 @@ def main():
     sys.path.insert(0, str(UPSTREAM))
     import torch
     from train import TrainConfig, train
-    from metric_logging import AFTER_TRAIN_STEP, MetricLogger
+    from metric_logging import AFTER_TRAIN_STEP, AFTER_EVAL, MetricLogger
 
     # Use metadata measured once on the target host. Torch 2.6 otherwise invokes
     # nvidia-smi against physical GPU 0 in every compiler process, even with a
@@ -183,6 +183,11 @@ def main():
         wandb_tags=tuple(dict.fromkeys(("a1", selected["group"],
                          *selected.get("comparisons", []), args.run_id))), resume_from_checkpoint=False)
     config = TrainConfig(**config_kwargs)
+    interventions = selected.get("interventions", {})
+    if interventions.get("fixed_val_rms"):
+        from interventions import log_fixed_validation_rms
+        config = replace(config, metric_loggers=config.metric_loggers + (
+            MetricLogger(event=AFTER_EVAL, fn=log_fixed_validation_rms),))
     config = replace(config, metric_loggers=config.metric_loggers + (
         MetricLogger(event=AFTER_TRAIN_STEP, fn=log_local),))
     if args.cpu_check:
@@ -209,6 +214,7 @@ def main():
         plan_sha256=hashlib.sha256(args.plan.read_bytes()).hexdigest(),
         sources=sources,
         tracker=args.tracker,
+        interventions=interventions,
         host=os.environ.get("CS312_HOST"), physical_gpu=os.environ.get("CUDA_VISIBLE_DEVICES"),
         max_sm_clock_mhz=int(measured_clock) if measured_clock else None,
     )
@@ -238,7 +244,8 @@ def main():
         tracking = nullcontext()
     try:
         with tracking as mirror:
-            with redirect_stdout(transcript):
+            from interventions import token_edit_context
+            with redirect_stdout(transcript), token_edit_context(interventions.get("token_edit"), config, folder):
                 train(config)
             if not transcript.rows or transcript.rows[-1]["completed_steps"] != transcript.rows[-1]["total_steps"]:
                 raise RuntimeError("Training returned without a terminal validation observation.")

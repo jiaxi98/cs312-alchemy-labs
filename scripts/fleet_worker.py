@@ -50,11 +50,17 @@ def main():
         else:
             fcntl.flock(slot_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         completed = []
-        for row in plan["runs"]:
+        # Start the longest same-GPU comparison lanes first; all other lanes
+        # consume unreserved work while these serial experiments progress.
+        ordered = sorted(plan["runs"], key=lambda row: not (
+            row.get("required_host_index") == spec["host_index"] and row.get("required_gpu") == gpu))
+        for row in ordered:
             if (campaign / "STOP").exists():
                 break
             reserved = row.get("required_host_index")
             if reserved is not None and reserved != spec["host_index"]:
+                continue
+            if row.get("required_gpu") is not None and row["required_gpu"] != gpu:
                 continue
             claim = claims / row["id"]
             try:

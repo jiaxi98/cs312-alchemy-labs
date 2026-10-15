@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "assignment": "A1",
+  "batch": "completion",
+  "max_parallel": 160,
+  "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+  "context_length": 1024,
+  "runs": [
+    {
+      "id": "complete-check-d9",
+      "group": "setup",
+      "purpose": "pipeline check only",
+      "display_name": "Completion check · d9",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "save_model": false,
+        "latest_checkpoint_frequency": null
+      },
+      "interventions": {}
+    },
+    {
+      "id": "complete-check-epoch15",
+      "group": "setup",
+      "purpose": "pipeline check only",
+      "display_name": "Completion check · epoch15",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 256,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 3.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "save_model": false,
+        "latest_checkpoint_frequency": null
+      },
+      "interventions": {}
+    },
+    {
+      "id": "complete-check-late-token",
+      "group": "setup",
+      "purpose": "pipeline check only",
+      "display_name": "Completion check · late-token",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "deterministic": true,
+        "save_model": false,
+        "latest_checkpoint_frequency": null
+      },
+      "interventions": {
+        "token_edit": {
+          "after_steps": 5,
+          "count": 16,
+          "position": 100
+        }
+      }
+    },
+    {
+      "id": "complete-check-fixed-rms",
+      "group": "setup",
+      "purpose": "pipeline check only",
+      "display_name": "Completion check · fixed-rms",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "save_model": false,
+        "latest_checkpoint_frequency": null
+      },
+      "interventions": {
+        "fixed_val_rms": true
+      }
+    },
+    {
+      "id": "complete-check-aggressive",
+      "group": "setup",
+      "purpose": "pipeline check only",
+      "display_name": "Completion check · aggressive",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.1,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "save_model": false,
+        "latest_checkpoint_frequency": null
+      },
+      "interventions": {}
+    }
+  ],
+  "requested_comparisons": [],
+  "reused_runs": {
+    "a1-lr-0.001-s42": [
+      "p1-example-batch"
+    ],
+    "a1-lr-0.003-s42": [
+      "p1-example-batch",
+      "p2-heldout",
+      "p2-data-scaling",
+      "p5-example"
+    ],
+    "a1-r2-025": [
+      "p1-example-batch"
+    ],
+    "a1-r2-026": [
+      "p1-example-batch"
+    ],
+    "a1-r2-088": [
+      "p1-example-batch"
+    ],
+    "a1-baseline-s43": [
+      "p1-example-batch",
+      "p2-heldout",
+      "p2-data-scaling",
+      "p5-example"
+    ],
+    "a1-r2-093": [
+      "p1-example-batch"
+    ],
+    "a1-r2-094": [
+      "p1-example-batch"
+    ],
+    "a1-r2-054": [
+      "p2-heldout"
+    ],
+    "a1-r2-122": [
+      "p2-heldout"
+    ],
+    "a1-lr-0.03-s42": [
+      "p2-heldout",
+      "p2-data-scaling"
+    ],
+    "a1-r2-091": [
+      "p2-heldout",
+      "p2-data-scaling"
+    ],
+    "a1-lr-0.0001-s42": [
+      "p2-slope-break"
+    ],
+    "a1-r2-176": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-212": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-213": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-179": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-214": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-215": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-182": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-216": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-217": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-185": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-218": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-219": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-188": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-220": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-221": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-191": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-194": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-197": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-200": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-203": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-032": [
+      "p5-example"
+    ],
+    "a1-lr-0.0003-s42": [
+      "p5-example"
+    ],
+    "a1-r2-100": [
+      "p5-example"
+    ],
+    "a1-r2-087": [
+      "p5-example"
+    ]
+  },
+  "predictions": "reports/a1_scaling_predictions.json",
+  "exclusions": [
+    "PDF p10 explicitly says not to run the changing-context illustrative example.",
+    "d20 is a prediction request; no d20 training is required.",
+    "H100/A100 hardware comparison unavailable in the H20 allocation.",
+    "P7 is an optional learner-designed question, with no fixed recipe to exhaust."
+  ]
+}
