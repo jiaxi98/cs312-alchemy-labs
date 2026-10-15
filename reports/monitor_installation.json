@@ -1,0 +1,27 @@
+{
+  "installed_at_beijing": "2026-10-15T23:06:19.510134+08:00",
+  "verified_cron_execution_beijing": "2026-10-15T23:08:07.346395+08:00",
+  "interval_seconds": 120,
+  "schedule": "*/2 * * * *",
+  "allowed_allocations": [
+    "box2",
+    "hy"
+  ],
+  "excluded_allocations": [
+    "box1",
+    "h3"
+  ],
+  "max_parallel_gpus": 80,
+  "effective_A1_targets": 207,
+  "states_at_verification": {
+    "complete": 85,
+    "running": 69,
+    "pending": 52,
+    "finishing": 1
+  },
+  "problems_at_verification": [],
+  "monitor_tests_passed": 8,
+  "monitor_code_commit": "7b11ea64e822c380c1eaa3f85ef9fd5c02683177",
+  "chat_wakeup_available": false,
+  "live_report": "reports/monitor_live.local.md"
+}
