@@ -1,8 +1,8 @@
-"""Run one pinned course configuration on one visible GPU; keep diagnostics offline."""
+"""Run one pinned course configuration on one GPU with SwanLab and local diagnostics."""
 from __future__ import annotations
 
 import argparse
-from contextlib import redirect_stdout
+from contextlib import nullcontext, redirect_stdout
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 import hashlib
@@ -96,6 +96,10 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True,
                         help="Fresh directory for this attempt; never overwritten.")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--tracker", choices=("swanlab-online", "swanlab-offline", "wandb-offline"),
+                        default="swanlab-online")
+    parser.add_argument("--swanlab-project", default="cs312-alchemy-labs")
+    parser.add_argument("--swanlab-workspace")
     parser.add_argument("--cpu-check", action="store_true",
                         help="Tiny synthetic integration check; not a course result.")
     args = parser.parse_args()
@@ -107,7 +111,7 @@ def main():
     data_dir = args.data_dir.resolve()
     if args.dry_run:
         print(json.dumps({**selected, "data_dir": str(data_dir), "output_dir": str(folder),
-                          "logging": "W&B offline + local train/validation JSONL",
+                          "logging": args.tracker + " + local W&B/JSONL backup",
                           "single_visible_gpu_required": not args.cpu_check}, indent=2))
         return
 
@@ -117,6 +121,10 @@ def main():
     os.environ["WANDB_MODE"] = "offline"
     os.environ["WANDB_DIR"] = str(folder)
     os.environ.setdefault("OMP_NUM_THREADS", "4")
+    if args.tracker == "swanlab-online":
+        from tracking import api_key
+        if not api_key():
+            raise RuntimeError("SwanLab API key is missing; run scripts/configure_swanlab.py first.")
     # Shared filesystems can fail when dlopen reads newly compiled extensions.
     # Configure both caches before importing torch/Triton; keep logs on shared storage.
     cache = Path(tempfile.mkdtemp(prefix="cs312-compile-",
@@ -185,7 +193,10 @@ def main():
         cpu_check=args.cpu_check, compile_cache=str(cache),
         plan_sha256=hashlib.sha256(args.plan.read_bytes()).hexdigest(),
         sources=sources,
+        tracker=args.tracker,
     )
+    if args.tracker.startswith("swanlab"):
+        environment["swanlab"] = version("swanlab")
     if not args.cpu_check:
         environment["verified_data"] = ready
     write_json(folder / "config.json", metadata)
@@ -194,18 +205,33 @@ def main():
     write_json(folder / "status.json", dict(state="running", run_id=args.run_id,
         started_at=datetime.now(timezone.utc).isoformat(), cpu_check=args.cpu_check))
     transcript = Transcript(folder)
+    if args.tracker.startswith("swanlab"):
+        from tracking import SwanLabMirror
+        tracking = SwanLabMirror(folder,
+            mode=args.tracker.removeprefix("swanlab-"), project=args.swanlab_project,
+            workspace=args.swanlab_workspace, experiment_name=f"{args.run_id}--{folder.name}",
+            group="a1-" + selected["group"], tags=config.wandb_tags,
+            config=dict(train=metadata, provenance=environment, scope=selected["purpose"]),
+            tokens_per_step=config.batch_size * config.train_dataset.context_length)
+    else:
+        tracking = nullcontext()
     try:
-        with redirect_stdout(transcript):
-            train(config)
-        if not transcript.rows or transcript.rows[-1]["completed_steps"] != transcript.rows[-1]["total_steps"]:
-            raise RuntimeError("Training returned without a terminal validation observation.")
-        import math
-        finite = all(math.isfinite(row["val_loss"]) and math.isfinite(row["train_loss"])
-                     for row in transcript.rows)
-        write_json(folder / "status.json", dict(state="complete" if finite else "diverged",
-            run_id=args.run_id, seconds=time.perf_counter() - start, cpu_check=args.cpu_check,
-            final=transcript.rows[-1], finite=finite,
-            peak_cuda_memory_gib=None if args.cpu_check else torch.cuda.max_memory_allocated() / 1024**3))
+        with tracking as mirror:
+            with redirect_stdout(transcript):
+                train(config)
+            if not transcript.rows or transcript.rows[-1]["completed_steps"] != transcript.rows[-1]["total_steps"]:
+                raise RuntimeError("Training returned without a terminal validation observation.")
+            import math
+            finite = all(math.isfinite(row["val_loss"]) and math.isfinite(row["train_loss"])
+                         for row in transcript.rows)
+            if mirror is not None:
+                finite = finite and not mirror.recorder.nonfinite
+                if not finite:
+                    mirror.mark_failed("Non-finite training or validation metric")
+            write_json(folder / "status.json", dict(state="complete" if finite else "diverged",
+                run_id=args.run_id, seconds=time.perf_counter() - start, cpu_check=args.cpu_check,
+                final=transcript.rows[-1], finite=finite,
+                peak_cuda_memory_gib=None if args.cpu_check else torch.cuda.max_memory_allocated() / 1024**3))
     except BaseException:
         write_json(folder / "status.json", dict(state="failed", run_id=args.run_id,
             seconds=time.perf_counter() - start, cpu_check=args.cpu_check, error=traceback.format_exc()))

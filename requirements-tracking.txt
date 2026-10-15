@@ -1,0 +1,3 @@
+# The training environment must still satisfy upstream/a1/pyproject.toml.
+swanlab==0.10.2
+wandb==0.22.3

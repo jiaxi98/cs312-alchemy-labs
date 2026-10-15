@@ -71,6 +71,7 @@ def stage(client):
     paths.extend(upstream / name for name in subprocess.check_output(
         ["git", "-C", str(upstream), "ls-files", "-z"], text=True).split("\0") if name)
     paths.append(ROOT / "sources.lock.json")
+    paths.append(ROOT / "requirements-tracking.txt")
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     manifest = json.dumps(dict(files=hashes, upstream_commit=commit, lab_commit=lab_commit), sort_keys=True).encode()
     digest = hashlib.sha256(manifest).hexdigest()
@@ -137,6 +138,10 @@ assert not any(line.split(',')[0].strip()==uuids[gpu].strip()for line in apps.sp
 root=pathlib.Path(s['remote_root']);output=root/'runs'/s['attempt']
 assert not output.exists(),'Attempt already exists; inspect instead of relaunching'
 env=dict(os.environ,CUDA_VISIBLE_DEVICES=str(gpu),OMP_NUM_THREADS='4',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='4',PYTHONUNBUFFERED='1')
+if s.get('swanlab_api_key'):
+ env['SWANLAB_API_KEY']=s['swanlab_api_key']
+if s.get('http_proxy'):
+ env.update(http_proxy=s['http_proxy'],https_proxy=s['http_proxy'],HTTP_PROXY=s['http_proxy'],HTTPS_PROXY=s['http_proxy'])
 for key in list(env):
  if key.startswith(('OMPI_','PMI_','PMIX_'))or key in ('RANK','WORLD_SIZE','LOCAL_RANK','LOCAL_WORLD_SIZE','MASTER_ADDR','MASTER_PORT','GROUP_RANK','ROLE_RANK','ROLE_WORLD_SIZE'):
   env.pop(key,None)
@@ -150,7 +155,8 @@ for split,n in [('train',16),('val',8)]:
  (p/'metadata.json').write_text(json.dumps({'dtype':'uint16','num_sequences':n,'seq_len':16,'token_file':'tokens.bin'}))
 """
  subprocess.run([s['python'],'-c',build,str(data)],check=True,env=dict(env,CUDA_VISIBLE_DEVICES=''))
-cmd=[s['python'],'-u',s['code']+'/scripts/run.py','--run-id',s['run_id'],'--data-dir',str(data),'--output-dir',str(output)]
+cmd=[s['python'],'-u',s['code']+'/scripts/run.py','--run-id',s['run_id'],'--data-dir',str(data),'--output-dir',str(output),'--tracker',s['tracker'],'--swanlab-project',s['swanlab_project']]
+if s.get('swanlab_workspace'):cmd.extend(['--swanlab-workspace',s['swanlab_workspace']])
 if s.get('cpu_check'):cmd.append('--cpu-check')
 logs=root/'launches';logs.mkdir(exist_ok=True)
 with(logs/(s['attempt']+'.log')).open('ab')as log:
@@ -186,6 +192,10 @@ def main():
     parser.add_argument("--run-id", default="a1-smoke")
     parser.add_argument("--attempt")
     parser.add_argument("--cpu-check", action="store_true")
+    parser.add_argument("--tracker", choices=("swanlab-online", "swanlab-offline", "wandb-offline"),
+                        default="swanlab-online")
+    parser.add_argument("--swanlab-project")
+    parser.add_argument("--swanlab-workspace")
     args = parser.parse_args()
     state_file = ROOT / "reports/stage.local.json"
     client = connection(args.alias, args.host)
@@ -201,6 +211,16 @@ def main():
                 if not args.attempt:
                     parser.error("--attempt is required for a run")
                 spec.update(gpu=args.gpu,run_id=args.run_id,attempt=args.attempt,cpu_check=args.cpu_check)
+                from tracking import settings, api_key
+                tracking = settings()
+                spec.update(tracker=args.tracker,
+                    swanlab_project=args.swanlab_project or tracking.get("project", "cs312-alchemy-labs"),
+                    swanlab_workspace=args.swanlab_workspace or tracking.get("workspace"),
+                    http_proxy=os.environ.get("CS312_HTTP_PROXY") or local_settings().get("http_proxy"))
+                if args.tracker == "swanlab-online":
+                    spec["swanlab_api_key"] = api_key()
+                    if not spec["swanlab_api_key"]:
+                        raise RuntimeError("Configure SwanLab with scripts/configure_swanlab.py before launching.")
             result = remote(client, {"download": DOWNLOAD,"run": START,"status": STATUS}[args.action], spec)
             if args.action == "status":
                 (ROOT / "reports/status.local.json").write_text(json.dumps(result, indent=2) + "\n")

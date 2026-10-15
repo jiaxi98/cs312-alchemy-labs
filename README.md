@@ -12,7 +12,7 @@
 - `sources.lock.json`：课程材料哈希、代码提交和数据 revision。
 - `materials/`：官方 A1–A3 题目与首页本地快照，不提交大文件；按 lock 可重新下载。
 - `experiments/a1/initial.json`：第一轮显式配置。
-- `scripts/run.py`：单 GPU 入口，调用官方训练函数，保留离线 W&B 和本地 JSONL。
+- `scripts/run.py`：单 GPU 入口，调用官方训练函数，上传 SwanLab 并保留本地备份。
 - `notes/a1_predictions.md`：运行前的预测、信心和复盘。
 - `reports/`：经过整理的小型报告；主机信息等本地配置用 `*.local.json`。
 - `data/`、`runs/`、`runtime/`：忽略原始数据、权重、日志和环境，避免 Git 存储膨胀。
@@ -68,11 +68,13 @@ CUDA_VISIBLE_DEVICES=0 python scripts/run.py --run-id a1-smoke \
 
 ## 环境与记录口径
 
+后续实验默认使用 **SwanLab**，项目 `jiaxi98/cs312-alchemy-labs`。首次执行 `python3 scripts/configure_swanlab.py` 配置认证；训练环境需安装 `requirements-tracking.txt`。详见 [SwanLab 接入与指标口径](docs/swanlab.md)。
+
 官方依赖锁定 torch 2.6.0，支持 Python 3.10–3.12。已接入 H20 的 torch 2.6.0+cu124 环境；W&B 实际为 0.22.3，课程锁为 0.17.3。入口机的 CPU PyTorch 2.8.0 与远端训练环境不同。实际 GPU 检查状态和失败记录见 `reports/setup.md`。
 
 官方训练在单卡、`num_micro_batches=1` 时启用 `torch.compile`；多卡自动走 DataParallel，梯度累积也关闭 compile。因此我们采用每卡一个独立实验。比较科学结论时固定这些实现选项，比较吞吐时记录它们。
 
-`wandb_online=False` 会关闭官方内部诊断 logger。入口保留 `wandb_online=True`，并设置 `WANDB_MODE=offline`，使 loss 和 RMS 指标保存在本地，不需要账号。额外的 `train_metrics.jsonl` 保存逐步 loss 与下一步 LR；`validation.jsonl` 来自官方终端输出，validation loss 精度是 6 位小数，完整精度在离线 W&B 数据中。W&B 的 optimizer step 从 0 开始，本地 `completed_steps` 从 1 开始。
+`wandb_online=False` 会关闭官方内部诊断 logger。入口保留 `wandb_online=True`，设置 `WANDB_MODE=offline` 作为本地备份；`tracking.py` 将原始记录同步到 SwanLab，并保存完整精度的 `metrics.jsonl`。SwanLab 的 step 和本地 `completed_steps` 从 1 开始，同一步的 train/eval/RMS 合并；官方 W&B 的 optimizer step 从 0 开始。`validation.jsonl` 仍作为终端记录备份，其精度为 6 位小数。
 
 本地入口要求全新 output 目录。失败或非有限 loss 会单独标记；不会默默跳过失败组，也不会把中断误记为完成。官方 checkpoint 可以用于后续显式续跑，当前入口不自动混入前次运行。
 

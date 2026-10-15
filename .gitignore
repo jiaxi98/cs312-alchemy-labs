@@ -6,6 +6,7 @@ data/
 runs/
 runtime/
 wandb/
+swanlog/
 *.local.*
 materials/*.pdf
 materials/*.txt
