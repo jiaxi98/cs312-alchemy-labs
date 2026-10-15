@@ -1,0 +1,79 @@
+[
+  {
+    "id": "lc9h1431bvkfmbo62gno6",
+    "name": "a1-baseline-s44--a1-baseline-s44-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/m0sk8hhs/chart",
+    "group": ""
+  },
+  {
+    "id": "0wvu4e6re6teth1t3tlea",
+    "name": "a1-lr-0.03-s42--a1-lr-0.03-s42-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/67s2putt/chart",
+    "group": ""
+  },
+  {
+    "id": "cd5k7v53qx1fo2eamqcpw",
+    "name": "a1-baseline-s43--a1-baseline-s43-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/5lgewe11/chart",
+    "group": ""
+  },
+  {
+    "id": "gf1mn9rbj314q9wpzom7w",
+    "name": "a1-lr-0.01-s42--a1-lr-0.01-s42-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/4g4e59v7/chart",
+    "group": ""
+  },
+  {
+    "id": "ydcnte20dz5ho7vz4b3uf",
+    "name": "a1-lr-0.001-s42--a1-lr-0.001-s42-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hb4ued27/chart",
+    "group": ""
+  },
+  {
+    "id": "ydt1p013xrdeuzci31di7",
+    "name": "a1-lr-0.0001-s42--a1-lr-0.0001-s42-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/duknp5ch/chart",
+    "group": ""
+  },
+  {
+    "id": "ipgp7zngf3yyo4nfmy3qq",
+    "name": "a1-lr-0.0003-s42--a1-lr-0.0003-s42-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/m4t7ps63/chart",
+    "group": ""
+  },
+  {
+    "id": "zxl35zk6z4nzp4tvsr12f",
+    "name": "a1-smoke--swanlab-h20-check-001",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/l3pryf6o/chart",
+    "group": ""
+  },
+  {
+    "id": "0mfgcgsxl4kcfnk5l6nqy",
+    "name": "a1-lr-0.003-s42--a1-baseline-001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/960r1pnt/chart",
+    "group": ""
+  },
+  {
+    "id": "xrog71a3kig91k84rz2gj",
+    "name": "a1-smoke--swanlab-cpu-check-001",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/czswe0to/chart",
+    "group": ""
+  },
+  {
+    "id": "p2iyfs4igk71a743kfrch",
+    "name": "swanlab-cloud-connection-check",
+    "state": "FINISHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/dwn67d05/chart",
+    "group": ""
+  }
+]

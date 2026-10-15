@@ -1,0 +1,111 @@
+{
+  "snapshot_beijing": "2026-10-15T16:17:26.276851+08:00",
+  "project": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs",
+  "formal_runs": 8,
+  "tokens_per_run": 614400000,
+  "steps_per_run": 9375,
+  "runs": [
+    {
+      "attempt": "a1-baseline-001",
+      "run_id": "a1-lr-0.003-s42",
+      "state": "running",
+      "steps_at_snapshot": 7520,
+      "last_validation": {
+        "completed_steps": 7426,
+        "total_steps": 9375,
+        "train_loss": 2.994481,
+        "val_loss": 2.9938,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "learning_rate": 0.003,
+      "model_seed": 42,
+      "data_seed": 42,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/960r1pnt/chart",
+      "code_commit": "caf7220ccd1c0e80c9b3e0c91385a144fc3a4845"
+    },
+    {
+      "attempt": "a1-baseline-s43-001",
+      "run_id": "a1-baseline-s43",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.003,
+      "model_seed": 43,
+      "data_seed": 43,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/5lgewe11/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    },
+    {
+      "attempt": "a1-baseline-s44-001",
+      "run_id": "a1-baseline-s44",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.003,
+      "model_seed": 44,
+      "data_seed": 44,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/m0sk8hhs/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    },
+    {
+      "attempt": "a1-lr-0.0001-s42-001",
+      "run_id": "a1-lr-0.0001-s42",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.0001,
+      "model_seed": 42,
+      "data_seed": 42,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/duknp5ch/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    },
+    {
+      "attempt": "a1-lr-0.0003-s42-001",
+      "run_id": "a1-lr-0.0003-s42",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.0003,
+      "model_seed": 42,
+      "data_seed": 42,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/m4t7ps63/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    },
+    {
+      "attempt": "a1-lr-0.001-s42-001",
+      "run_id": "a1-lr-0.001-s42",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.001,
+      "model_seed": 42,
+      "data_seed": 42,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hb4ued27/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    },
+    {
+      "attempt": "a1-lr-0.01-s42-001",
+      "run_id": "a1-lr-0.01-s42",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.01,
+      "model_seed": 42,
+      "data_seed": 42,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/4g4e59v7/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    },
+    {
+      "attempt": "a1-lr-0.03-s42-001",
+      "run_id": "a1-lr-0.03-s42",
+      "state": "running",
+      "steps_at_snapshot": 0,
+      "last_validation": null,
+      "learning_rate": 0.03,
+      "model_seed": 42,
+      "data_seed": 42,
+      "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/67s2putt/chart",
+      "code_commit": "c526171cf20d5425da5316fe3d6a2f4343a209d8"
+    }
+  ]
+}

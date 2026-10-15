@@ -1,0 +1,92 @@
+{
+  "cpu": {
+    "id": "czswe0to",
+    "state": "FINISHED",
+    "metrics": {
+      "train_loss": {
+        "points": 4,
+        "first": {
+          "step": 1,
+          "value": 3.837760210037231,
+          "timestamp": 1792051813000
+        },
+        "last": {
+          "step": 4,
+          "value": 4.002713680267334,
+          "timestamp": 1792051814000
+        }
+      },
+      "val_loss": {
+        "points": 2,
+        "first": {
+          "step": 3,
+          "value": 3.8181185722351074,
+          "timestamp": 1792051813000
+        },
+        "last": {
+          "step": 4,
+          "value": 3.815479278564453,
+          "timestamp": 1792051814000
+        }
+      },
+      "logging/rms/global/gradient": {
+        "points": 1,
+        "first": {
+          "step": 1,
+          "value": 0.07049406319856644,
+          "timestamp": 1792051813000
+        },
+        "last": {
+          "step": 1,
+          "value": 0.07049406319856644,
+          "timestamp": 1792051813000
+        }
+      }
+    }
+  },
+  "baseline": {
+    "id": "960r1pnt",
+    "state": "RUNNING",
+    "metrics": {
+      "train_loss": {
+        "points": 5399,
+        "first": {
+          "step": 1,
+          "value": 8.79699993133545,
+          "timestamp": 1792051820000
+        },
+        "last": {
+          "step": 5399,
+          "value": 3.0304806232452393,
+          "timestamp": 1792051883000
+        }
+      },
+      "val_loss": {
+        "points": 57,
+        "first": {
+          "step": 94,
+          "value": 5.075506210327148,
+          "timestamp": 1792051820000
+        },
+        "last": {
+          "step": 5358,
+          "value": 3.0800790786743164,
+          "timestamp": 1792051883000
+        }
+      },
+      "logging/rms/global/gradient": {
+        "points": 54,
+        "first": {
+          "step": 1,
+          "value": 0.0026812839787453413,
+          "timestamp": 1792051820000
+        },
+        "last": {
+          "step": 5301,
+          "value": 2.0723753550555557e-05,
+          "timestamp": 1792051882000
+        }
+      }
+    }
+  }
+}

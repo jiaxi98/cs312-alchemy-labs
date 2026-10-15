@@ -19,7 +19,9 @@
 
 `h20-smoke-002` 已通过：同一 d8、context 1024、batch 64、BF16 autocast 和 `torch.compile`，完成 32/32 steps；32 条逐步 loss、2 条 validation 及 RMS 日志均写入。总耗时 175.51 秒，峰值 allocated 显存 14.39 GiB。首次 step 耗时 93.90 秒，包含编译；短 run 的总时间不能用来估计稳定训练吞吐。可复核记录见 `h20_smoke.json`。
 
-正式 baseline 已按同一冻结代码版本启动：`a1-baseline-001`，600,000 序列、9375 steps、LR=0.003、model/data seed=42。当前尚无最终 validation loss；短检查结果不作为正式实验结论。
+正式 baseline 已按同一冻结代码版本启动：`a1-baseline-001`，600,000 序列、9375 steps、LR=0.003、model/data seed=42。随后加入 5 个 LR 对照及 baseline seed 43/44，第一批合计 8 个正式任务。当前尚无最终 validation loss；短检查结果不作为正式实验结论。见 `a1_first_batch.md`。
+
+SwanLab 0.10.2 已通过真实云端验证。新的日志环境独立安装 SwanLab/protobuf 6.33.6，保留 PyTorch 2.6.0+cu124；既有 baseline 继续原环境，由独立导入进程跟踪其 W&B 二进制文件。H20 新日志环境 32-step 检查通过并读回了 32 个 train loss、2 个 val loss 和梯度 RMS，见 `swanlab_h20_readback.json`。
 
 已从 GitHub 重新 clone 并初始化 submodule，确认官方 checkout 提交与 lock 一致、dry-run 入口可用。
 

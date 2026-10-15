@@ -1,0 +1,25 @@
+{
+  "run_id": "l3pryf6o",
+  "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/l3pryf6o/chart",
+  "state": "FINISHED",
+  "train_points": 32,
+  "val_points": [
+    {
+      "step": 17,
+      "value": 6.936074256896973,
+      "timestamp": 1792052077000
+    },
+    {
+      "step": 32,
+      "value": 6.894250392913818,
+      "timestamp": 1792052081000
+    }
+  ],
+  "rms_points": 1,
+  "checks": [
+    "32 train points",
+    "validation at steps 17 and 32",
+    "RMS at step 1",
+    "read back from cloud"
+  ]
+}
