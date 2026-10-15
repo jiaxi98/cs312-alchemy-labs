@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-09-07T16:00:19",
+  "description": "DCLM token data for Deep Learning Alchemy: 9,600,000 train rows, 1,000 validation rows, context length 1024. This is a plain raw-file release, not a Hugging Face datasets release.",
+  "files": [
+    {
+      "path": "train/metadata.json",
+      "sha256": "e9888a050dee09dad8de1d3364387610bbe31318ef7288e2051c61a99f35129a",
+      "size_bytes": 496
+    },
+    {
+      "path": "train/tokens.bin",
+      "sha256": "c267cefe8a378e6e53a22d78a95e0d108e839e802a089a60ee209c7d208dc07a",
+      "size_bytes": 19660800000
+    },
+    {
+      "path": "val/metadata.json",
+      "sha256": "e7eba89108355348c58ce4e34bb4181876c8e54f0611f21cfbc779f4440f204d",
+      "size_bytes": 493
+    },
+    {
+      "path": "val/tokens.bin",
+      "sha256": "ab657da123009fdd93fc972cc0a8e97308143355ee42720ca843fc8540eea353",
+      "size_bytes": 2048000
+    }
+  ],
+  "format_version": 1,
+  "git_commit": "e98cb1dde139762ebb297b7ad20e7e4aba055dc2",
+  "repo_id": "kothasuhas/dl_alchemy_seq9p6m_context1024",
+  "source_repo_id": "kothasuhas/dclm_tokenized_n12361963_ctx1024_pg_sp4096_eos"
+}

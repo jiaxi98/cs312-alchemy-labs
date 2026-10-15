@@ -1,0 +1,70 @@
+{
+  "status.json": {
+    "state": "complete",
+    "run_id": "a1-smoke",
+    "seconds": 9.1473576920107,
+    "cpu_check": true,
+    "final": {
+      "completed_steps": 4,
+      "total_steps": 4,
+      "train_loss": 4.002714,
+      "val_loss": 3.815479,
+      "source": "upstream_stdout_6_decimal_places"
+    },
+    "finite": true,
+    "peak_cuda_memory_gib": null
+  },
+  "environment.json": {
+    "python": "3.12.6 (main, Nov  6 2024, 17:34:35) [GCC 8.5.0 20210514 (Tencent 8.5.0-23)]",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu": null,
+    "capability": null,
+    "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+    "cpu_check": true,
+    "plan_sha256": "5c795c86056055255bcd878bfda4681fe1cac3712ce0786dddd24e33eebe7606",
+    "sources": {
+      "verified_date_beijing": "2026-10-15",
+      "materials": [
+        {
+          "file": "course.html",
+          "url": "https://deep-learning-alchemy.github.io/",
+          "sha256": "4d7518c7e5834d9ae13e8ba9e46d9d8b1b1d3686ab22b286fb6d2fcfbfadb394",
+          "bytes": 39083
+        },
+        {
+          "file": "a1_basics.pdf",
+          "url": "https://deep-learning-alchemy.github.io/assets/assignments/a1_basics.pdf",
+          "sha256": "c7224af293c916f18a44aeaf746cbc5a215de6cb1367720a438fdeb04d3f21d0",
+          "bytes": 681834
+        },
+        {
+          "file": "a2_hyperparameter_scaling.pdf",
+          "url": "https://deep-learning-alchemy.github.io/assets/assignments/a2_hyperparameter_scaling.pdf",
+          "sha256": "fe3afd8fbfa9ce243fa30b9d314345ed3d96a57f25287baab3883a5f928800de",
+          "bytes": 223659
+        },
+        {
+          "file": "a3_optimization2.pdf",
+          "url": "https://deep-learning-alchemy.github.io/assets/assignments/a3_optimization2.pdf",
+          "sha256": "5d85fa0dc33e69aee3593944f8c5183073f059ade6e1bb1791754afcb15fb8c5",
+          "bytes": 1667108
+        }
+      ],
+      "upstream": {
+        "url": "https://github.com/deep-learning-alchemy/assignments.git",
+        "branch": "a1_release",
+        "commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+        "path": "upstream/a1"
+      },
+      "dataset": {
+        "repo_id": "kothasuhas/dl_alchemy_seq9p6m_context1024",
+        "revision": "8d066a12a614ce8641c661874960bf8567bf0f19",
+        "train_bytes": 19660800000,
+        "val_bytes": 2048000
+      }
+    }
+  },
+  "train_rows": 4,
+  "validation_rows": 2
+}

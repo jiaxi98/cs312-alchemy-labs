@@ -1,0 +1,30 @@
+{
+  "repo_id": "kothasuhas/dl_alchemy_seq9p6m_context1024",
+  "revision": "8d066a12a614ce8641c661874960bf8567bf0f19",
+  "train_bytes": 19660800000,
+  "val_bytes": 2048000,
+  "manifest_sha256": "f9121c85a385b5a3bbbc7ee4f9b589cc6792448f1b91949dc6b22d20ece81ef3",
+  "files": [
+    {
+      "path": "train/metadata.json",
+      "sha256": "e9888a050dee09dad8de1d3364387610bbe31318ef7288e2051c61a99f35129a",
+      "size_bytes": 496
+    },
+    {
+      "path": "train/tokens.bin",
+      "sha256": "c267cefe8a378e6e53a22d78a95e0d108e839e802a089a60ee209c7d208dc07a",
+      "size_bytes": 19660800000
+    },
+    {
+      "path": "val/metadata.json",
+      "sha256": "e7eba89108355348c58ce4e34bb4181876c8e54f0611f21cfbc779f4440f204d",
+      "size_bytes": 493
+    },
+    {
+      "path": "val/tokens.bin",
+      "sha256": "ab657da123009fdd93fc972cc0a8e97308143355ee42720ca843fc8540eea353",
+      "size_bytes": 2048000
+    }
+  ],
+  "seconds": 243.2003531754017
+}

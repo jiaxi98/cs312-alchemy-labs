@@ -1,0 +1,4 @@
+[submodule "upstream/a1"]
+	path = upstream/a1
+	url = https://github.com/deep-learning-alchemy/assignments.git
+	branch = a1_release

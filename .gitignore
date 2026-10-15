@@ -1,0 +1,17 @@
+.venv*/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/
+runs/
+runtime/
+wandb/
+*.local.*
+materials/*.pdf
+materials/*.txt
+materials/*.html
+materials/sources.json
+.env
+.env.*
+!.env.example
+
