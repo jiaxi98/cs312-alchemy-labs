@@ -1,0 +1,980 @@
+[
+  {
+    "name": "P1 schedule · cos lr=0.003 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/p5jnw7lu/chart",
+    "id": "b55vfcwrqmp8fngcals9l"
+  },
+  {
+    "name": "P3 same seeds · host repeat=7",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/rtjcxkd0/chart",
+    "id": "j0ae1fwnx6u7waozuesmb"
+  },
+  {
+    "name": "P3 same seeds · host repeat=4",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/vcdr5ea0/chart",
+    "id": "5edeuhn8f20wster2azk6"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.2 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/fyew7abb/chart",
+    "id": "g4bptw6uzyqhi2dean0an"
+  },
+  {
+    "name": "P1 warmup=0.2 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hfk4chvc/chart",
+    "id": "wwq4hd5t9gw1pwxzecden"
+  },
+  {
+    "name": "P1 warmup×lr · w=0 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/wq6bxzrl/chart",
+    "id": "qf3nmrqw02mqqtnyq7dhu"
+  },
+  {
+    "name": "P2 d5 · linear lr=0.003 drop=0.2 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/aern2g96/chart",
+    "id": "qw6yar8mru6n56ew0n7ou"
+  },
+  {
+    "name": "P1 schedule · wsd0.5 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/jf0n0kfb/chart",
+    "id": "bldvnypq5bblhqfebn8qt"
+  },
+  {
+    "name": "P1 wd×lr · wd=1 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ndu1l6kx/chart",
+    "id": "jv0lkxvv1b7i0i5efs7jo"
+  },
+  {
+    "name": "P1 schedule · cos lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/c5wi8gcd/chart",
+    "id": "aq3cc92kco1ip5f9pipo6"
+  },
+  {
+    "name": "P2 d5 · linear lr=0.03 drop=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/l3a6c9uo/chart",
+    "id": "z1ehr8eqz9n7uvq02gau8"
+  },
+  {
+    "name": "P2 d5 · linear lr=0.003 drop=0.2 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/pnx4e33e/chart",
+    "id": "xutkfo00cg48taa78jxs9"
+  },
+  {
+    "name": "P3 init · seed=12",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/v0e48c9q/chart",
+    "id": "o2sde8k97nbtd1yyt88jh"
+  },
+  {
+    "name": "P1 wd×lr · wd=1 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/fqor2tbg/chart",
+    "id": "4zzqf8thhviy3zg57td52"
+  },
+  {
+    "name": "P1 schedule · wsd0.5 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/8z9j82jg/chart",
+    "id": "e6ihyn91ca8p380q0uqjx"
+  },
+  {
+    "name": "P3 variance · lr0.009 · s=8",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/wo5sgail/chart",
+    "id": "5qqyilx8qqtqillffs2n0"
+  },
+  {
+    "name": "P2 d5 · linear lr=0.003 drop=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/wmbw71g6/chart",
+    "id": "4nwpj4wzyukubvfwoj8a1"
+  },
+  {
+    "name": "P1 batch×lr · b=128 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mogg7iyq/chart",
+    "id": "trzkc3pnsasxu299povtt"
+  },
+  {
+    "name": "P1 wd=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mc3aeugq/chart",
+    "id": "takg8jgbs94iotmvzlhxy"
+  },
+  {
+    "name": "P1 schedule · wsd0.2 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/3t478ibr/chart",
+    "id": "72sm365e3fmqot7f09o0v"
+  },
+  {
+    "name": "P1 warmup×lr · w=0 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/vhppd8bc/chart",
+    "id": "us2a5sm3ehkzf1c0gq9gz"
+  },
+  {
+    "name": "P3 joint · seed=10",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hazef9si/chart",
+    "id": "6x9s96meptn1xiuofoxsg"
+  },
+  {
+    "name": "P4 token=control · s=47",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/aigjtnkn/chart",
+    "id": "y2v24ygh0logxet22gytu"
+  },
+  {
+    "name": "P3 init · seed=13",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/vihefe80/chart",
+    "id": "8y2wkt8xc7omx9cgijux1"
+  },
+  {
+    "name": "P3 joint · seed=12",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/x2xecvan/chart",
+    "id": "k3eppcqmq47ene35gpc3n"
+  },
+  {
+    "name": "P2 d5 · linear lr=0.03 drop=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/8xdps7i8/chart",
+    "id": "suqqez0q8gtnjmipopl84"
+  },
+  {
+    "name": "P1 batch×lr · b=128 lr=0.006 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/a4lrhu72/chart",
+    "id": "gewxebbpz8azrnpc7pnhe"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.3 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ch4zhkms/chart",
+    "id": "zssi78tkl0kgyh9xog196"
+  },
+  {
+    "name": "P1 wd=0.3 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/2wpk1hde/chart",
+    "id": "lod2aumxuj0y8h3krhpbd"
+  },
+  {
+    "name": "P1 batch×lr · b=32 lr=0.03 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hhhrp090/chart",
+    "id": "mz3aw68r2jpnc2boph51y"
+  },
+  {
+    "name": "P3 data · seed=13",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/j1bktrwn/chart",
+    "id": "qenxwktteriv00e6rkvby"
+  },
+  {
+    "name": "P1 batch×lr · b=32 lr=0.006 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mm25x5ah/chart",
+    "id": "okzqlxxilhxvsuzd6474y"
+  },
+  {
+    "name": "P1 wd=0.03 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mgzqyol4/chart",
+    "id": "0dfor2zlfva3krdp7qjrm"
+  },
+  {
+    "name": "P2 d5 · constant lr=0.003 drop=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/f5ydea7n/chart",
+    "id": "qzqiza45s087p5ha4eha1"
+  },
+  {
+    "name": "P1 batch×lr · b=128 lr=0.0003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/9gd6o7r3/chart",
+    "id": "r8cwdjvdnevrkbtud01jv"
+  },
+  {
+    "name": "P1 batch×lr · b=32 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/yo2uvwe9/chart",
+    "id": "k5mcqz6j9lsg6hcvkto7f"
+  },
+  {
+    "name": "P1 wd×lr · wd=0 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/felxoail/chart",
+    "id": "h9likx6xappq8w2ld8osl"
+  },
+  {
+    "name": "P2 d4 · linear lr=0.03 drop=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/h3ewcbqn/chart",
+    "id": "jxwc54o427bawl5cyw9ra"
+  },
+  {
+    "name": "P3 joint · seed=11",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ot933pfs/chart",
+    "id": "0yz1rji0j4f1v00jguozh"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.1 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/c8moa3mr/chart",
+    "id": "7y9yooaa8zlbs9v3v2hbh"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.3 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/o9emc8r1/chart",
+    "id": "nye0i6sy8gp2kkvxfuecl"
+  },
+  {
+    "name": "P1 wd=1 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/lohrrmdo/chart",
+    "id": "afconv3l8g198t3hv37am"
+  },
+  {
+    "name": "P2 d5 · linear lr=0.003 drop=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/6flc6xzm/chart",
+    "id": "op31ixzowxflvz74fzbra"
+  },
+  {
+    "name": "P1 momentum · β1=0.95 lr=0.001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/fcizutum/chart",
+    "id": "v788lqose2qzpc6tr1bmw"
+  },
+  {
+    "name": "P3 init · seed=10",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ityq33fn/chart",
+    "id": "3xlmyhggyedt8ipsu7frr"
+  },
+  {
+    "name": "P1 warmup=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/bc2diujs/chart",
+    "id": "4n6w1y6g9q3wlszrn0f0h"
+  },
+  {
+    "name": "P3 variance · lr0.009 · s=7",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/g0qt0acx/chart",
+    "id": "kafggmp1iameasn8eck4h"
+  },
+  {
+    "name": "P2 d4 · linear lr=0.03 drop=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/y6l9mftv/chart",
+    "id": "4qr07yjn87vdisxk5ldzb"
+  },
+  {
+    "name": "P1 batch×lr · b=64 lr=0.006 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/99bhnh4u/chart",
+    "id": "yicaprfa173pbsilq2azo"
+  },
+  {
+    "name": "P1 schedule · wsd0.2 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/nftt06in/chart",
+    "id": "cbggkcz7fhfhx3w9qgee4"
+  },
+  {
+    "name": "P1 schedule · constant lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/0mfhsylj/chart",
+    "id": "ybe9gf6hsn5ndfaa6zllx"
+  },
+  {
+    "name": "P1 schedule · wsd0.5 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/et2n7s23/chart",
+    "id": "zgrtgpebodkpr7ti03r08"
+  },
+  {
+    "name": "P1 schedule · wsd0.1 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/k9xoczj1/chart",
+    "id": "wfjjlhsudor78n4g1o7fx"
+  },
+  {
+    "name": "P3 init · seed=8",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/c80x0z2j/chart",
+    "id": "grekg5g053t958irq7pfz"
+  },
+  {
+    "name": "P1 batch×lr · b=32 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/0bdufelz/chart",
+    "id": "yzlwk94bxg6pw1cbou2rx"
+  },
+  {
+    "name": "P4 token=control · s=46",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/doqcel0p/chart",
+    "id": "xbycnrwzqbtefuw90s6pg"
+  },
+  {
+    "name": "P1 wd×lr · wd=0 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/qv6ky82e/chart",
+    "id": "ae64axw3fn29wyqixvpmk"
+  },
+  {
+    "name": "P3 joint · seed=13",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/yl6xe66e/chart",
+    "id": "foifyvjfy48wup7v0c770"
+  },
+  {
+    "name": "P1 schedule · wsd0.1 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/nef7tmu5/chart",
+    "id": "soknq3uhiumexwje5cmko"
+  },
+  {
+    "name": "P3 init · seed=7",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/vf10hsm4/chart",
+    "id": "8at5jw7xtilr3wk1b0i3i"
+  },
+  {
+    "name": "P4 token=changed · s=45",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/us9ysgkm/chart",
+    "id": "1zi3nzbol5oupb1h1i8aj"
+  },
+  {
+    "name": "P3 data · seed=10",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/1fkvij0v/chart",
+    "id": "j8zbxxufcjvhawxhpr824"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.01 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/6zmn6x66/chart",
+    "id": "vtp9zej31tccu521bi2r7"
+  },
+  {
+    "name": "P4 token=changed · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/1it6clm2/chart",
+    "id": "7sothujp1dpvyd6b70wfo"
+  },
+  {
+    "name": "P1 wd×lr · wd=1 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/04dfbjln/chart",
+    "id": "uznklnc1o1r7li9evqye5"
+  },
+  {
+    "name": "P4 token=changed · s=46",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/5rtbnnp8/chart",
+    "id": "gtfnomir533gazkxw56ym"
+  },
+  {
+    "name": "P1 wd=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/xhp13q0i/chart",
+    "id": "pd7c5imzl4773esniadzt"
+  },
+  {
+    "name": "P1 batch×lr · b=128 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/6t8qtuon/chart",
+    "id": "wh8zutgzz61r1bl8x8tw5"
+  },
+  {
+    "name": "P1 batch×lr · b=32 lr=0.0003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ghdnnizy/chart",
+    "id": "yc3qyoak4yo2z1noi100d"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.2 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/zcq1xr6k/chart",
+    "id": "y9ui5vvn1ie32mh70mypm"
+  },
+  {
+    "name": "P1 warmup=0.1 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ppgeudhk/chart",
+    "id": "cf7rnqxa37fje5izsakgu"
+  },
+  {
+    "name": "P1 schedule · wsd0.2 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/iz2b3ee1/chart",
+    "id": "ccxyrvo8n9jtj3yr0mzcn"
+  },
+  {
+    "name": "P3 same seeds · host repeat=2",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/axud61ht/chart",
+    "id": "hrpzwdg3i17kvb14lgznc"
+  },
+  {
+    "name": "P1 batch×lr · b=32 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/c13unzic/chart",
+    "id": "reod207mfj05ji1opzjsb"
+  },
+  {
+    "name": "P1 momentum · β1=0.95 lr=0.01",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/jcmbfdvn/chart",
+    "id": "7o3s6rr1om95g5n9ra1kw"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.3 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/3ffl0fyz/chart",
+    "id": "r2fpse6x0jszd1o3f6i4x"
+  },
+  {
+    "name": "P1 schedule · wsd0.1 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/4qmm9a2v/chart",
+    "id": "fpb8mux36g80x3pjygjuo"
+  },
+  {
+    "name": "P3 variance · batch16 · s=8",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ik6zmcfv/chart",
+    "id": "vmz5dwdwhz8oh55mj3exd"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.1 lr=0.01 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/iev04inf/chart",
+    "id": "qm7hf4i2sdi0dfdd5vr69"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.01 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/uvlg4sai/chart",
+    "id": "ftzqlpusrl3qhnvzwvhj3"
+  },
+  {
+    "name": "P4 token=changed · s=47",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/vkrtmx3b/chart",
+    "id": "1tc57qnqu4ez2x72q4psf"
+  },
+  {
+    "name": "P1 warmup=0.05 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/1y0eyasx/chart",
+    "id": "2bm6xgkzlamyn4bsurk9x"
+  },
+  {
+    "name": "P2 d5 · constant lr=0.003 drop=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/azylloyt/chart",
+    "id": "khdj8pt0omqnqw9uzf71a"
+  },
+  {
+    "name": "P1 wd×lr · wd=1 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/tjcntz0v/chart",
+    "id": "objovpq9ii6inmye06pgs"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.2 lr=0.001 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/7lnklb0r/chart",
+    "id": "r6lluikezl25cmea54n5m"
+  },
+  {
+    "name": "P1 momentum · β1=0.95 lr=0.003",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/zqtajm3h/chart",
+    "id": "5vt7wjz8qn7nm9sg8yyjx"
+  },
+  {
+    "name": "P3 init · seed=11",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/xaebzjoe/chart",
+    "id": "hnmovsjr8r4hrzn5008gf"
+  },
+  {
+    "name": "P1 momentum · β1=0.5 lr=0.003",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/owtrut3c/chart",
+    "id": "9icgz2uvecldgiuorb8ih"
+  },
+  {
+    "name": "P3 data · seed=11",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/um6ko9u1/chart",
+    "id": "pdipe0lsuah6bub7nv0kc"
+  },
+  {
+    "name": "P1 momentum · β1=0.5 lr=0.01",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/zakeq97j/chart",
+    "id": "k99wxojemkfrm7hj31hc7"
+  },
+  {
+    "name": "P1 warmup=0.05 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/9plultcj/chart",
+    "id": "esiqb7t8zisk7du65e63v"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.3 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/enlr4nsf/chart",
+    "id": "ohbipn9xct4b3wym5457v"
+  },
+  {
+    "name": "P3 variance · batch16 · s=7",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/0os0d4z0/chart",
+    "id": "58xb5lup6qhgiwy79pesd"
+  },
+  {
+    "name": "P3 joint · seed=8",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/6facgzir/chart",
+    "id": "8pw7oascrv7czqaacj7n4"
+  },
+  {
+    "name": "P1 warmup=0.1 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/2nd2kcpo/chart",
+    "id": "5as3ogd3oh4iwsdw39w85"
+  },
+  {
+    "name": "P3 data · seed=12",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/f8j2quz0/chart",
+    "id": "qcdfuybb8r8mbwpktqfav"
+  },
+  {
+    "name": "P4 token=control · s=45",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/byesa93i/chart",
+    "id": "t37wg88otn4pwjh06lvr6"
+  },
+  {
+    "name": "P1 wd=0.3 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/9r7x0btk/chart",
+    "id": "t9ziqk3568ktwjoru912m"
+  },
+  {
+    "name": "P3 init · seed=4",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/8n7eh0cw/chart",
+    "id": "w6uprj5kzu3ewdzduubat"
+  },
+  {
+    "name": "P1 batch×lr · b=16 lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ngvqlm22/chart",
+    "id": "n2ui81034dgynf0o97nyv"
+  },
+  {
+    "name": "P1 warmup=0.2 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/8s2nx481/chart",
+    "id": "1f1skanzfkcwnifdqu6ps"
+  },
+  {
+    "name": "P1 batch×lr · b=16 lr=0.03 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/lqwwvjgp/chart",
+    "id": "9299rqao9qmp57em5az0o"
+  },
+  {
+    "name": "P1 wd×lr · wd=0 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/og6gnvgc/chart",
+    "id": "yshb5kvwdmsc7al6ebe0t"
+  },
+  {
+    "name": "P3 joint · seed=6",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/u2ktjgcy/chart",
+    "id": "7jq6811s624xuy0ucfybz"
+  },
+  {
+    "name": "P2 d4 · linear lr=0.003 drop=0.2 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/t7uw78m3/chart",
+    "id": "pw4u73kd95qv88bbrra7i"
+  },
+  {
+    "name": "P3 init · seed=9",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/wokshfzg/chart",
+    "id": "xcef8qd6y76a0aymszl6u"
+  },
+  {
+    "name": "P1 schedule · constant lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/2b37opw7/chart",
+    "id": "gcax5381qooc68nidc9l2"
+  },
+  {
+    "name": "P3 data · seed=8",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/bynobsb3/chart",
+    "id": "f4xavjitokub39ffe3xkn"
+  },
+  {
+    "name": "P3 variance · lr0.009 · s=4",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mr0g934u/chart",
+    "id": "5skq2lhfnwmacwtcb3vk0"
+  },
+  {
+    "name": "P3 variance · batch16 · s=6",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/j921xhje/chart",
+    "id": "r99a3ivt4ds61eeoqgjrp"
+  },
+  {
+    "name": "P3 init · seed=6",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/kvqjjxk6/chart",
+    "id": "4poemh4ynhzwtkqchpkce"
+  },
+  {
+    "name": "P1 wd=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/6x2mlp8q/chart",
+    "id": "79ox62m621mwmj3grh3xz"
+  },
+  {
+    "name": "P1 batch×lr · b=16 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/g28gpve7/chart",
+    "id": "musgp0wjsy8941oef1wtp"
+  },
+  {
+    "name": "P1 momentum · β1=0 lr=0.01",
+    "state": "CRASHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/pf5t6it7/chart",
+    "id": "ahkpiqd8d7lciee30pgmk"
+  },
+  {
+    "name": "P4 token=changed · s=44",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/shtnzs59/chart",
+    "id": "y21dbc3rj705blsab135y"
+  },
+  {
+    "name": "P1 schedule · cos lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/8p5z04jh/chart",
+    "id": "u16seeu5wd0alhidz9dcc"
+  },
+  {
+    "name": "P1 momentum · β1=0 lr=0.003",
+    "state": "CRASHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/1dpraant/chart",
+    "id": "k41zlkjm5uqknj1wtst8p"
+  },
+  {
+    "name": "P2 d4 · linear lr=0.003 drop=0.2 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/zs5h9gp1/chart",
+    "id": "sd6is8nhhzhv5flajibsp"
+  },
+  {
+    "name": "P4 token=control · s=44",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/5xyuo0sg/chart",
+    "id": "msnkad1o1ewdzcmds1kvu"
+  },
+  {
+    "name": "P3 variance · batch16 · s=5",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/v0oku8r1/chart",
+    "id": "jtckam0f7lv4rnmk9naok"
+  },
+  {
+    "name": "P1 batch×lr · b=16 lr=0.0003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/t12c6x5d/chart",
+    "id": "bn9zo30hpovq2rsfv2jer"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.1 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/zfo6eai9/chart",
+    "id": "fxabqo6k4s1n6xyxqr516"
+  },
+  {
+    "name": "P1 batch×lr · b=16 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/sqycscaa/chart",
+    "id": "9qdcjzi5quawyuhv01q13"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.2 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/e3asvq1m/chart",
+    "id": "fh3zr6o8mgf615oaao7rc"
+  },
+  {
+    "name": "P1 warmup=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/vana910a/chart",
+    "id": "gsw5h96iw0xb3jil8u5qy"
+  },
+  {
+    "name": "P3 joint · seed=7",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/w0oqv0cc/chart",
+    "id": "smzdu9en3ut5u5uvgrgs5"
+  },
+  {
+    "name": "P1 momentum · β1=0.5 lr=0.001",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/heekmkbs/chart",
+    "id": "ymgsbwhlsbyh1jzpagnv3"
+  },
+  {
+    "name": "P3 init · seed=5",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/szfab9cj/chart",
+    "id": "vveekeqmbqqcj4cieyjk0"
+  },
+  {
+    "name": "P3 joint · seed=4",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/317pumrj/chart",
+    "id": "q44xplys2bead3cdbr9jr"
+  },
+  {
+    "name": "P3 same seeds · host repeat=1",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/d58w8a8c/chart",
+    "id": "tpljo7gwgric02jr41wai"
+  },
+  {
+    "name": "P3 data · seed=6",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/lupqnxcp/chart",
+    "id": "6dkl72fsaer5capq0wcxl"
+  },
+  {
+    "name": "P3 joint · seed=9",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/xg821mxh/chart",
+    "id": "9bt0nmlk0j0uhp9nbckyp"
+  },
+  {
+    "name": "P3 variance · lr0.009 · s=6",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ynigjyth/chart",
+    "id": "ji0kzw39ucddkf7cej19c"
+  },
+  {
+    "name": "P1 wd=0.03 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/6vqflydw/chart",
+    "id": "tqr8zwolpeyrcq69wpczk"
+  },
+  {
+    "name": "P3 data · seed=4",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/re67pge4/chart",
+    "id": "ywz31wfqpq64r06g70k11"
+  },
+  {
+    "name": "P3 data · seed=9",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/v2fdjs19/chart",
+    "id": "7rx7dfo1zz9bo64quygzt"
+  },
+  {
+    "name": "P1 schedule · cos lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/kc9525vd/chart",
+    "id": "2blgkl2n0s7f10r0bi91f"
+  },
+  {
+    "name": "P3 variance · batch16 · s=4",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ecz167o9/chart",
+    "id": "wm9ftvgf0c9y9c2pn6cfj"
+  },
+  {
+    "name": "P3 variance · lr0.009 · s=5",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/i3go9u0i/chart",
+    "id": "4i2rppxvl40mwik0f02qn"
+  },
+  {
+    "name": "P1 warmup×lr · w=0 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/unld3gwc/chart",
+    "id": "9ljz8q7iocv222h3ialcj"
+  },
+  {
+    "name": "P4 token=control · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/w0mattqe/chart",
+    "id": "hwqmyukf9gtonev25dphi"
+  },
+  {
+    "name": "P1 momentum · β1=0 lr=0.001",
+    "state": "CRASHED",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/dxok49w7/chart",
+    "id": "ruy2ex9n1g7arpkqleipg"
+  },
+  {
+    "name": "P4 token=changed · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/halk7vlu/chart",
+    "id": "9yihpnpe58lr52unn1e9h"
+  },
+  {
+    "name": "P1 wd=1 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/r5kx57uf/chart",
+    "id": "bd91g2kmqh730otb8hg43"
+  },
+  {
+    "name": "P3 data · seed=7",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/lu8z1540/chart",
+    "id": "woakw3sjc3rdfekpb020d"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.01 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/cl67kb6h/chart",
+    "id": "kbmyok440k4klg8k8kteb"
+  },
+  {
+    "name": "P1 warmup×lr · w=0.1 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/zfx1g3ct/chart",
+    "id": "zmu9sx88lvcvotz4kbqr6"
+  },
+  {
+    "name": "P4 token=control · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/j4dprxwl/chart",
+    "id": "9qheym9692cduu7v5p5a0"
+  },
+  {
+    "name": "P2 d4 · linear lr=0.003 drop=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/l3ewsfy0/chart",
+    "id": "7m2cl665bgl0okzvgxhqo"
+  },
+  {
+    "name": "P2 d4 · constant lr=0.003 drop=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/oil1tal0/chart",
+    "id": "5dzj16sm23q4f1vmmbbbt"
+  },
+  {
+    "name": "P1 batch×lr · b=16 lr=0.006 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/tzqm2zjh/chart",
+    "id": "owegnwfvioekw66mxfcr9"
+  },
+  {
+    "name": "P1 wd×lr · wd=0.01 lr=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/wovju80x/chart",
+    "id": "195c2huhlrljv0ueexl7z"
+  },
+  {
+    "name": "P2 d4 · constant lr=0.003 drop=0 · s=43",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/aolmdkel/chart",
+    "id": "gkbw8e438tmfythmdrwp5"
+  },
+  {
+    "name": "P2 d4 · linear lr=0.003 drop=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/csj9kxro/chart",
+    "id": "0ajqhf0msi9ud27zdexko"
+  },
+  {
+    "name": "P1 schedule · constant lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/clqxhv47/chart",
+    "id": "xly1492vwjaa4pxwm2xvs"
+  },
+  {
+    "name": "P1 wd=0.01 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/3g40myxk/chart",
+    "id": "tgl4hkwlbpq5g7fmch3u8"
+  },
+  {
+    "name": "P1 warmup×lr · w=0 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/na7wkbvs/chart",
+    "id": "8lantwtd2zu7ck4vqtbsk"
+  },
+  {
+    "name": "P1 warmup=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/11ce1rl8/chart",
+    "id": "f6euj1emugtdrm3wo34fa"
+  },
+  {
+    "name": "P3 joint · seed=5",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/acxr1bm5/chart",
+    "id": "lqgl6ce6wz93hokdxwkrz"
+  },
+  {
+    "name": "P3 data · seed=5",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/lst3g7mf/chart",
+    "id": "6utwzoqvu8q1joodukaxb"
+  },
+  {
+    "name": "P1 schedule · cos lr=0.003 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/q9wt7o25/chart",
+    "id": "2eu90e6zps8bx6lxo37jt"
+  },
+  {
+    "name": "P1 wd×lr · wd=0 lr=0.001 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/tcwina7g/chart",
+    "id": "e64e24pmvc396lf99uad6"
+  },
+  {
+    "name": "P1 warmup=0 · s=42",
+    "state": "RUNNING",
+    "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/ivejcxhx/chart",
+    "id": "izoqji6ta4tke0sy0pzdp"
+  }
+]

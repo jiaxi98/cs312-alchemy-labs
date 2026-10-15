@@ -1,0 +1,162 @@
+{
+  "r2-check-ordinary": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-ordinary",
+      "seconds": 75.91786630265415,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.900948,
+        "val_loss": 6.894228,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 14.385428428649902
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/q08rk7p6"
+  },
+  "r2-check-wsd": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-wsd",
+      "seconds": 77.12434515543282,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.708619,
+        "val_loss": 6.697868,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 14.385428428649902
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/0e44fwfc"
+  },
+  "r2-check-dropout": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-dropout",
+      "seconds": 69.01190030481666,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.901375,
+        "val_loss": 6.878373,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 5.054246425628662
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/xompgcjy"
+  },
+  "r2-check-perturb": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-perturb",
+      "seconds": 68.26100101042539,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.900772,
+        "val_loss": 6.894232,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 14.39081859588623
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/46ggb8ob"
+  },
+  "r2-check-deterministic": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-deterministic",
+      "seconds": 67.15187251474708,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.900856,
+        "val_loss": 6.894262,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 14.39081859588623
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/qn9p2t12"
+  },
+  "r2-check-batch256": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-batch256",
+      "seconds": 103.96448262315243,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 9,
+        "total_steps": 9,
+        "train_loss": 7.399179,
+        "val_loss": 7.406378,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 56.188891887664795
+    },
+    "metric_rows": 9,
+    "last_input_tokens": 2099200,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/hhjf2axs"
+  },
+  "r2-check-constant": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-constant",
+      "seconds": 67.98991927318275,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.721542,
+        "val_loss": 6.67744,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 4.929246425628662
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/mgav4rpu"
+  },
+  "r2-check-cos": {
+    "status": {
+      "state": "complete",
+      "run_id": "r2-check-cos",
+      "seconds": 74.16642749961466,
+      "cpu_check": false,
+      "final": {
+        "completed_steps": 32,
+        "total_steps": 32,
+        "train_loss": 6.882051,
+        "val_loss": 6.878116,
+        "source": "upstream_stdout_6_decimal_places"
+      },
+      "finite": true,
+      "peak_cuda_memory_gib": 14.385428428649902
+    },
+    "metric_rows": 32,
+    "last_input_tokens": 2097152,
+    "swanlab": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/36yqowjr"
+  }
+}
