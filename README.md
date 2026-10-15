@@ -6,6 +6,8 @@
 
 **2026-10-15 状态**：第一批8项和第二批233项配置均已完成，A1补充比较继续运行。用户已预留H3_grpo的64卡与box_flow_grpo_1_bj的16卡，课程已撤出；当前仅使用box2+hy的80张H20。见 [当前用卡范围与迁移](docs/allocations.md)、[第二批完成记录](reports/a1_round2_completed.json)、[第一轮完整结果](reports/a1_initial_final.json)。
 
+后台监控每2分钟核对一次，任务完成后由GPU队列自动接续；监控负责补漏和异常记录。详见 [监控机制](docs/monitoring.md)，本机实时状态保存在 `reports/monitor_live.local.md`。
+
 ## 目录与 Git
 
 - `upstream/a1/`：官方 `a1_release` Git submodule，固定到 `baafc3f2d364e5ddbba75f0fe8d1cb29326920e5`。

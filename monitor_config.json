@@ -1,0 +1,12 @@
+{
+  "interval_seconds": 120,
+  "stale_after_seconds": 1800,
+  "max_recovery_launches_per_cycle": 10,
+  "campaigns": [
+    {"name": "a1-completion-20261015", "plan": "experiments/a1/completion.json"},
+    {"name": "a1-completion-80gpu", "plan": "experiments/a1/completion_80gpu.json"}
+  ],
+  "scope": "Finish the declared A1 experiments, including fixed-GPU comparisons. Do not invent new sweeps or start A2 automatically.",
+  "notifications": "Record only meaningful completions, new errors, recovery actions and full completion in the event log; unchanged state is quiet. No chat wakeup tool is available.",
+  "failure_policy": "Retain numerical divergence as a scientific outcome. Do not retry claimed training runs automatically. Restore idle worker capacity only for unclaimed, authorized tasks."
+}

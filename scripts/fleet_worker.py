@@ -28,12 +28,20 @@ def main():
     spec = json.loads(args.spec.read_text())
     from cluster import require_allowed
     require_allowed(spec["host"].rsplit("_", 1)[0])
+
+    def check_policy():
+        require_allowed(spec["host"].rsplit("_", 1)[0])
+        if spec.get("policy_path"):
+            policy = json.loads(Path(spec["policy_path"]).read_text())
+            alias = spec["host"].rsplit("_", 1)[0]
+            if alias not in policy["allowed_aliases"] or alias in policy["excluded_aliases"]:
+                raise RuntimeError("Allocation was reserved by the user after this worker launched")
     plan_path = ROOT / spec["plan"]
     plan = json.loads(plan_path.read_text())
     campaign = Path(spec["campaign_root"])
     claims = campaign / "claims"
     claims.mkdir(parents=True, exist_ok=True)
-    node = campaign / "hosts" / spec["host"]
+    node = Path(spec["status_dir"]) if spec.get("status_dir") else campaign / "hosts" / spec["host"]
     node.mkdir(parents=True, exist_ok=True)
     status_path = node / "status.json"
     states = {}
@@ -45,8 +53,12 @@ def main():
             atomic(status_path, dict(host=spec["host"], updated_at=time.time(), workers=states))
 
     def lane(gpu):
-        slot_lock = open(f"/tmp/cs312_gpu_{gpu}.lock", "a")
-        if spec.get("wait_for_slot"):
+        passed_fd = spec.get("passed_gpu_lock_fds", {}).get(str(gpu))
+        slot_lock = (os.fdopen(passed_fd, "a") if passed_fd is not None
+                     else open(f"/tmp/cs312_gpu_{gpu}.lock", "a"))
+        if passed_fd is not None:
+            fcntl.flock(slot_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        elif spec.get("wait_for_slot"):
             save(gpu, dict(state="waiting_for_gpu", since=time.time()))
             fcntl.flock(slot_lock, fcntl.LOCK_EX)
         else:
@@ -64,10 +76,12 @@ def main():
         completed = []
         # Start the longest same-GPU comparison lanes first; all other lanes
         # consume unreserved work while these serial experiments progress.
-        ordered = sorted(plan["runs"], key=lambda row: not (
+        included = set(spec.get("only_run_ids", []))
+        selected = [row for row in plan["runs"] if not included or row["id"] in included]
+        ordered = sorted(selected, key=lambda row: not (
             row.get("required_host_index") == spec["host_index"] and row.get("required_gpu") == gpu))
         for row in ordered:
-            require_allowed(spec["host"].rsplit("_", 1)[0])
+            check_policy()
             if (campaign / "STOP").exists():
                 break
             reserved = row.get("required_host_index")
