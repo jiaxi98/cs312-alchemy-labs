@@ -44,7 +44,11 @@ def main():
 
     def lane(gpu):
         slot_lock = open(f"/tmp/cs312_gpu_{gpu}.lock", "a")
-        fcntl.flock(slot_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        if spec.get("wait_for_slot"):
+            save(gpu, dict(state="waiting_for_gpu", since=time.time()))
+            fcntl.flock(slot_lock, fcntl.LOCK_EX)
+        else:
+            fcntl.flock(slot_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         completed = []
         for row in plan["runs"]:
             if (campaign / "STOP").exists():

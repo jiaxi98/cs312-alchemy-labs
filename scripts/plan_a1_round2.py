@@ -71,7 +71,7 @@ def make_round2():
                     f"P1 schedule · {schedule} lr={lr:g} · s={seed}",
                     {**seeds, "lr_schedule": schedule, "learning_rate": lr})
 
-    for beta1 in (0, .5, .9, .95):
+    for beta1 in (0.0, .5, .9, .95):
         for lr in (.001, .003, .01):
             add("p1-momentum", "P1c/P5: momentum, convergence and curve smoothness",
                 f"P1 momentum · β1={beta1:g} lr={lr:g}", {"beta1": beta1, "learning_rate": lr})

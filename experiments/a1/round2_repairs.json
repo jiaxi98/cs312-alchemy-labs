@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "assignment": "A1",
+  "batch": "round2-repairs",
+  "date_beijing": "2026-10-15",
+  "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+  "context_length": 1024,
+  "input_tokens_per_run": 614400000,
+  "gpu_per_run": 1,
+  "max_parallel": 160,
+  "reused_initial_runs": {
+    "a1-lr-0.003-s42": [
+      "p1-warmup",
+      "p1-weight-decay",
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.0003-s42": [
+      "p1-batch-lr"
+    ],
+    "a1-lr-0.001-s42": [
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.01-s42": [
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.03-s42": [
+      "p1-batch-lr"
+    ],
+    "a1-baseline-s43": [
+      "p1-warmup",
+      "p1-weight-decay",
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule"
+    ]
+  },
+  "runs": [
+    {
+      "id": "a1-r2-133-fix1",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0 lr=0.001",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.0,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1,
+      "repairs": "a1-r2-133",
+      "reason": "AdamW requires beta1 float; integer 0 rejected before first optimizer step"
+    },
+    {
+      "id": "a1-r2-134-fix1",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0 lr=0.003",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.0,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1,
+      "repairs": "a1-r2-134",
+      "reason": "AdamW requires beta1 float; integer 0 rejected before first optimizer step"
+    },
+    {
+      "id": "a1-r2-135-fix1",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0 lr=0.01",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.0,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1,
+      "repairs": "a1-r2-135",
+      "reason": "AdamW requires beta1 float; integer 0 rejected before first optimizer step"
+    }
+  ],
+  "held_out": {
+    "depths": [
+      8,
+      9
+    ],
+    "released": false,
+    "note": "d8 default already observed; only d9 is blind. Release after smaller-scale predictions."
+  },
+  "limitations": [
+    "constant scheduler ignores warmup in upstream; this is the course's literal recipe",
+    "P1 fixes parameter count × input tokens, not wall time or steps",
+    "batch128/256 has a smaller final batch; accumulated input-token axis is capped",
+    "hardware repeats all use H20; no claim of H100/A100 cross-architecture coverage",
+    "P4 tests only first-token perturbation, not the entire later-time intervention task",
+    "P5/P6 reuse all recorded curves and RMS diagnostics"
+  ]
+}
