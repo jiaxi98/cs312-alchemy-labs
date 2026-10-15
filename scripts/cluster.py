@@ -19,12 +19,23 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def allocation_policy():
+    return json.loads((ROOT / "allocation_policy.json").read_text())
+
+
+def require_allowed(alias):
+    policy = allocation_policy()
+    if alias not in policy["allowed_aliases"] or alias in policy["excluded_aliases"]:
+        raise RuntimeError(f"Course jobs are disabled on allocation {alias}: reserved by the user.")
+
+
 def local_settings():
     path = ROOT / "reports/cluster.local.json"
     return json.loads(path.read_text()) if path.exists() else {}
 
 
 def connection(alias, index):
+    require_allowed(alias)
     adapter = os.environ.get("CS312_FLEET_SCRIPTS") or local_settings().get("fleet_scripts")
     if not adapter:
         raise RuntimeError("Set CS312_FLEET_SCRIPTS to the existing fleet scripts directory.")
@@ -75,6 +86,7 @@ def stage(client):
         ["git", "-C", str(upstream), "ls-files", "-z"], text=True).split("\0") if name)
     paths.append(ROOT / "sources.lock.json")
     paths.append(ROOT / "requirements-tracking.txt")
+    paths.append(ROOT / "allocation_policy.json")
     hashes = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     manifest = json.dumps(dict(files=hashes, upstream_commit=commit, lab_commit=lab_commit), sort_keys=True).encode()
     digest = hashlib.sha256(manifest).hexdigest()
@@ -189,7 +201,7 @@ print(json.dumps(out))
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=("stage", "download", "run", "status"))
-    parser.add_argument("--alias", default="box1")
+    parser.add_argument("--alias", default=allocation_policy()["default_alias"])
     parser.add_argument("--host", type=int, default=0)
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--run-id", default="a1-smoke")

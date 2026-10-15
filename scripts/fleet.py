@@ -9,7 +9,7 @@ from pathlib import Path
 import sys
 from zoneinfo import ZoneInfo
 
-from cluster import ROOT, local_settings, remote
+from cluster import ROOT, allocation_policy, local_settings, remote
 from tracking import api_key, settings
 
 
@@ -18,20 +18,28 @@ def hosts():
     import fleet_occupancy_watch as fleet
     from star_nocfg_fleet import connect
     rows = []
-    for alias in fleet.ALIASES:
+    for alias in allocation_policy()["allowed_aliases"]:
         _, found = fleet.hosts_for(alias)
         for index, host in enumerate(found):
             rows.append((f"{alias}_{index}", host))
     return rows, connect
 
 
+def canonical_host_index(name):
+    # Preserve the indices used by frozen plans even after allocations are removed.
+    alias, index = name.rsplit("_", 1)
+    return {"box1": 0, "box2": 2, "hy": 4, "h3": 12}[alias] + int(index)
+
+
 def call_all(source, specs, *, selected=None):
     rows, connect = hosts()
+    if selected and set(selected) - {name for name, _ in rows}:
+        raise RuntimeError("Requested host is unavailable or reserved by the user")
     result = {}
     def call(index, name, host):
         c = connect(host)
         try:
-            spec = specs(index, name)
+            spec = specs(canonical_host_index(name), name)
             return name, remote(c, source, spec, timeout=55)
         finally:
             c.close()
@@ -71,7 +79,9 @@ clocks=subprocess.check_output(['nvidia-smi','--query-gpu=clocks.max.sm','--form
 uuids=subprocess.check_output(['nvidia-smi','--query-gpu=uuid','--format=csv,noheader'],text=True,timeout=25).splitlines()
 apps=subprocess.check_output(['nvidia-smi','--query-compute-apps=gpu_uuid,pid','--format=csv,noheader,nounits'],text=True,timeout=25)
 occupied={line.split(',')[0].strip()for line in apps.splitlines()}
-assert len(clocks)==8 and all(uuids[i].strip()not in occupied for i in s['gpus']),'Target GPU busy'
+assert len(clocks)==8
+if not s.get('wait_for_slot'):
+ assert all(uuids[i].strip()not in occupied for i in s['gpus']),'Target GPU busy'
 spec={k:v for k,v in s.items()if k not in ['api_key','proxy']};spec['sm_clocks']=[int(x.strip())for x in clocks]
 (node/'spec.json').write_text(json.dumps(spec))
 env=dict(os.environ,SWANLAB_API_KEY=s['api_key'],http_proxy=s['proxy'],https_proxy=s['proxy'],HTTP_PROXY=s['proxy'],HTTPS_PROXY=s['proxy'],PYTHONUNBUFFERED='1')
@@ -100,6 +110,8 @@ def main():
     p.add_argument("--plan", default="experiments/a1/round2.json")
     p.add_argument("--hosts", nargs="+")
     p.add_argument("--gpus", nargs="+", type=int, default=list(range(8)))
+    p.add_argument("--wait-for-slot", action="store_true",
+                   help="Queue behind an existing course GPU lock without interrupting it")
     args = p.parse_args()
     stage = json.loads((ROOT / "reports/stage.local.json").read_text())
     tracking = settings()
@@ -108,6 +120,7 @@ def main():
             campaign_root=f"{stage['remote_root']}/campaigns/{args.campaign}",
             code=stage["code"], python="/tmp/cs312-swanlab-v0102/.venv/bin/python",
             data_dir="/tmp/cs312-swanlab-v0102/data", remote_root=stage["remote_root"],
+            wait_for_slot=args.wait_for_slot,
             gpus=args.gpus, project=tracking["project"], workspace=tracking["workspace"],
             api_key=api_key(), proxy=local_settings().get("http_proxy"))
     result = call_all({"probe": PROBE,"launch": START,"status": STATUS}[args.action],

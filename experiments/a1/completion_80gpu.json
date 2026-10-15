@@ -1,0 +1,3661 @@
+{
+  "version": 1,
+  "assignment": "A1",
+  "batch": "completion-80gpu",
+  "max_parallel": 80,
+  "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+  "context_length": 1024,
+  "runs": [
+    {
+      "id": "a1-c-112-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-4",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-112",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-172-m80",
+      "group": "p3-determinism-repeat",
+      "purpose": "PDF p13: identical deterministic recipe, same physical GPU",
+      "display_name": "P3 deterministic · repeat=1",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true
+      },
+      "comparisons": [
+        "p3-determinism-repeat"
+      ],
+      "required_host_index": 5,
+      "required_gpu": 0,
+      "replica": "determinism-1",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-172",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-113-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-4",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-113",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-173-m80",
+      "group": "p3-determinism-repeat",
+      "purpose": "PDF p13: identical deterministic recipe, same physical GPU",
+      "display_name": "P3 deterministic · repeat=2",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true
+      },
+      "comparisons": [
+        "p3-determinism-repeat"
+      ],
+      "required_host_index": 5,
+      "required_gpu": 0,
+      "replica": "determinism-2",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-173",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-114-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-4",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-114",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-115-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-5",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-115",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-116-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-5",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-116",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-117-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-5",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-117",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-118-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-6",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-118",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-143-m80",
+      "group": "p3-variance-ten",
+      "purpose": "P3c: ten paired seeds per recipe; H20 fleet comparison",
+      "display_name": "P3 10seed · batch16 · s=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-variance-ten"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-143",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-028-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d4 reuse40k · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-028",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-119-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-6",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-119",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-019-m80",
+      "group": "p2-heldout",
+      "purpose": "P2a: release after d4-d7 prediction registration",
+      "display_name": "P2 verify · d9 linear lr=0.03 drop=0 · s=42",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.0
+      },
+      "comparisons": [
+        "p2-heldout"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-019",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-029-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d5 slow-lr · s=42",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-029",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-120-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-6",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-120",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-160-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d9 n=600000 · s=12",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-160",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-020-m80",
+      "group": "p2-heldout",
+      "purpose": "P2a: release after d4-d7 prediction registration",
+      "display_name": "P2 verify · d9 linear lr=0.03 drop=0 · s=43",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.0
+      },
+      "comparisons": [
+        "p2-heldout"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-020",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-077-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=150016 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-077",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-121-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-7",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-121",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-078-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=150016 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-078",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-122-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-7",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-122",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-162-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d8 n=1200000 · s=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-162",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-032-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d5 reuse40k · s=42",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-032",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-079-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=150016 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-079",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-123-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-7",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-123",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-163-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d8 n=1200000 · s=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-163",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-033-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d5 slow-lr · s=43",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-033",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-080-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=300032 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-080",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-124-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-8",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-124",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-081-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=300032 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-081",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-125-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-8",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-125",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-165-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d8 n=1200000 · s=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-165",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-082-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=300032 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-082",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-126-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-8",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-126",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-127-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 9,
+        "data_seed": 9,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-9",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-127",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-167-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d8 n=1200000 · s=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 9,
+        "data_seed": 9,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-167",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-129-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 9,
+        "data_seed": 9,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-9",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-129",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-168-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d8 n=1200000 · s=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 10,
+        "data_seed": 10,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-168",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-038-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d6 drop0.5 · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-038",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-085-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=600000 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-085",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-131-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 9,
+        "data_seed": 9,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-9",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-131",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-039-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d6 aggressive · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-039",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-132-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 10,
+        "data_seed": 10,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-10",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-132",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-040-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d6 reuse40k · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-040",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-087-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=600000 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-087",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-134-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 10,
+        "data_seed": 10,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-10",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-134",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-171-m80",
+      "group": "p3-scale-variance",
+      "purpose": "P3c: variability at larger model or longer horizon",
+      "display_name": "P3 scale · d8 n=1200000 · s=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 13,
+        "data_seed": 13,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-scale-variance"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-171",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-041-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d6 slow-lr · s=43",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-041",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-136-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 10,
+        "data_seed": 10,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-10",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-136",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-137-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=11",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 11,
+        "data_seed": 11,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-11",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-137",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-139-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=11",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 11,
+        "data_seed": 11,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-11",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-139",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-044-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d6 reuse40k · s=43",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-044",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-091-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d4 n=1200000 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-091",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-141-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=11",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 11,
+        "data_seed": 11,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-11",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-141",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-045-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 slow-lr · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-045",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-092-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=37504 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 37504,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-092",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-142-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-12",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-142",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-046-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 drop0.5 · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-046",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-093-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=37504 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 37504,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-093",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-144-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-12",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-144",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-047-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 aggressive · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-047",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-094-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=37504 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 37504,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-094",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-146-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-12",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-146",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-048-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 reuse40k · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-048",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-095-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=37504 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 37504,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-095",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-147-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · baseline · s=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 13,
+        "data_seed": 13,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-baseline-13",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-147",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-049-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 slow-lr · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-049",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-096-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=75008 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 75008,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-096",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-149-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · batch16 · s=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 13,
+        "data_seed": 13,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-batch16-13",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-149",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-050-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 drop0.5 · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-050",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-097-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=75008 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 75008,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-097",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-151-m80",
+      "group": "p3-example-same-gpu",
+      "purpose": "PDF p14: all thirty runs on the identical physical GPU",
+      "display_name": "P3 exact GPU · lr0.009 · s=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 13,
+        "data_seed": 13,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-example-same-gpu"
+      ],
+      "required_host_index": 4,
+      "required_gpu": 0,
+      "replica": "same-gpu-lr0.009-13",
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-151",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-051-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 aggressive · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-051",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-098-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=75008 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 75008,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-098",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-052-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d7 reuse40k · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-052",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-099-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=75008 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 75008,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-099",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-053-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 drop0.5 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-053",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-100-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=150016 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-100",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-054-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 aggressive · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-054",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-101-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=150016 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-101",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-055-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 reuse40k · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-055",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-102-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=150016 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-102",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-056-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 slow-lr · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-056",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-103-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=150016 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 150016,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-103",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-057-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 drop0.5 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-057",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-104-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=300032 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-104",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-058-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 aggressive · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-058",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-105-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=300032 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-105",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-059-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d8 reuse40k · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-059",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-106-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=300032 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-106",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-060-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 slow-lr · s=42",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-060",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-107-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=300032 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 300032,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-107",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-061-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 drop0.5 · s=42",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-061",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-108-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=1200000 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-108",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-062-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 aggressive · s=42",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-062",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-109-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=1200000 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-109",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-063-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 reuse40k · s=42",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-063",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-110-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=1200000 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-110",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-064-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 slow-lr · s=43",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.0001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-064",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-111-m80",
+      "group": "p2-data-scaling",
+      "purpose": "P2b/c: input-data horizon scaling; LR is explicitly controlled",
+      "display_name": "P2 data · d8 n=1200000 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 1200000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-data-scaling"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-111",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-065-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 drop0.5 · s=43",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.5
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-065",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-066-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 aggressive · s=43",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.1,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-066",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    },
+    {
+      "id": "a1-c-067-m80",
+      "group": "p2-slope-break",
+      "purpose": "P2b/c: controlled model-scaling interventions, fixed 614.4M tokens",
+      "display_name": "P2 slope · d9 reuse40k · s=43",
+      "config": {
+        "model_name": "d9",
+        "learning_rate": 0.003,
+        "num_train_sequences": 40000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 15.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p2-slope-break"
+      ],
+      "supersedes": {
+        "campaign": "a1-completion-20261015",
+        "run_id": "a1-c-067",
+        "reason": "user reserved original allocation",
+        "restart": "fresh run, previous attempt stopped after <=2 steps or not started"
+      }
+    }
+  ],
+  "requested_comparisons": [],
+  "reused_runs": {
+    "a1-lr-0.001-s42": [
+      "p1-example-batch"
+    ],
+    "a1-lr-0.003-s42": [
+      "p1-example-batch",
+      "p2-heldout",
+      "p2-data-scaling",
+      "p5-example"
+    ],
+    "a1-r2-025": [
+      "p1-example-batch"
+    ],
+    "a1-r2-026": [
+      "p1-example-batch"
+    ],
+    "a1-r2-088": [
+      "p1-example-batch"
+    ],
+    "a1-baseline-s43": [
+      "p1-example-batch",
+      "p2-heldout",
+      "p2-data-scaling",
+      "p5-example"
+    ],
+    "a1-r2-093": [
+      "p1-example-batch"
+    ],
+    "a1-r2-094": [
+      "p1-example-batch"
+    ],
+    "a1-r2-054": [
+      "p2-heldout"
+    ],
+    "a1-r2-122": [
+      "p2-heldout"
+    ],
+    "a1-lr-0.03-s42": [
+      "p2-heldout",
+      "p2-data-scaling"
+    ],
+    "a1-r2-091": [
+      "p2-heldout",
+      "p2-data-scaling"
+    ],
+    "a1-lr-0.0001-s42": [
+      "p2-slope-break"
+    ],
+    "a1-r2-176": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-212": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-213": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-179": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-214": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-215": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-182": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-216": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-217": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-185": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-218": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-219": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-188": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-220": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-221": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-191": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-194": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-197": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-200": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-203": [
+      "p3-variance-ten"
+    ],
+    "a1-r2-032": [
+      "p5-example"
+    ],
+    "a1-lr-0.0003-s42": [
+      "p5-example"
+    ],
+    "a1-r2-100": [
+      "p5-example"
+    ],
+    "a1-r2-087": [
+      "p5-example"
+    ]
+  },
+  "predictions": "reports/a1_scaling_predictions.json",
+  "exclusions": [
+    "PDF p10 explicitly says not to run the changing-context illustrative example.",
+    "d20 is a prediction request; no d20 training is required.",
+    "H100/A100 hardware comparison unavailable in the H20 allocation.",
+    "P7 is an optional learner-designed question, with no fixed recipe to exhaust."
+  ],
+  "migration": {
+    "from": "a1-completion-20261015",
+    "excluded_aliases": [
+      "box1",
+      "h3"
+    ],
+    "allowed_aliases": [
+      "box2",
+      "hy"
+    ],
+    "preserve_original_results": true,
+    "same_gpu_lanes": {
+      "p3-example-same-gpu": "hy_0/gpu0",
+      "p3-determinism-repeat": "hy_1/gpu0"
+    }
+  }
+}

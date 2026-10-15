@@ -26,6 +26,8 @@ def main():
     parser.add_argument("--spec", type=Path, required=True)
     args = parser.parse_args()
     spec = json.loads(args.spec.read_text())
+    from cluster import require_allowed
+    require_allowed(spec["host"].rsplit("_", 1)[0])
     plan_path = ROOT / spec["plan"]
     plan = json.loads(plan_path.read_text())
     campaign = Path(spec["campaign_root"])
@@ -49,12 +51,23 @@ def main():
             fcntl.flock(slot_lock, fcntl.LOCK_EX)
         else:
             fcntl.flock(slot_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        # A course lock does not establish ownership of arbitrary CUDA work.
+        # Recheck after a queued wait, immediately before claiming any new run.
+        uuid = subprocess.check_output([
+            "nvidia-smi", "-i", str(gpu), "--query-gpu=uuid", "--format=csv,noheader"],
+            text=True, timeout=20).strip()
+        apps = subprocess.check_output([
+            "nvidia-smi", "--query-compute-apps=gpu_uuid,pid", "--format=csv,noheader,nounits"],
+            text=True, timeout=20)
+        if any(line.split(",")[0].strip() == uuid for line in apps.splitlines()):
+            raise RuntimeError(f"GPU {gpu} has an existing CUDA workload after acquiring the course lock")
         completed = []
         # Start the longest same-GPU comparison lanes first; all other lanes
         # consume unreserved work while these serial experiments progress.
         ordered = sorted(plan["runs"], key=lambda row: not (
             row.get("required_host_index") == spec["host_index"] and row.get("required_gpu") == gpu))
         for row in ordered:
+            require_allowed(spec["host"].rsplit("_", 1)[0])
             if (campaign / "STOP").exists():
                 break
             reserved = row.get("required_host_index")

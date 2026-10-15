@@ -1,0 +1,85 @@
+{
+  "date_beijing": "2026-10-15",
+  "excluded_allocations": [
+    "H3_grpo",
+    "box_flow_grpo_1_bj"
+  ],
+  "released_gpus": 80,
+  "allowed_aliases": [
+    "box2",
+    "hy"
+  ],
+  "max_parallel_gpus": 80,
+  "hosts": [
+    {
+      "host": "box1_0",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.7451453
+    },
+    {
+      "host": "box1_1",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.7932622
+    },
+    {
+      "host": "h3_0",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.7331398
+    },
+    {
+      "host": "h3_1",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.785165
+    },
+    {
+      "host": "h3_2",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.7319973
+    },
+    {
+      "host": "h3_3",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.7389624
+    },
+    {
+      "host": "h3_4",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.8306143
+    },
+    {
+      "host": "h3_5",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.797233
+    },
+    {
+      "host": "h3_6",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 8,
+      "verified_at_unix": 1792075282.7886288
+    },
+    {
+      "host": "h3_7",
+      "remaining_course_processes": 0,
+      "cuda_processes": 0,
+      "checkpointed_runs": 1,
+      "verified_at_unix": 1792075282.695142
+    }
+  ]
+}

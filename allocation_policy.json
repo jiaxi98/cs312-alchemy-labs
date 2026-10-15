@@ -1,0 +1,8 @@
+{
+  "updated_date_beijing": "2026-10-15",
+  "allowed_aliases": ["box2", "hy"],
+  "excluded_aliases": ["box1", "h3"],
+  "default_alias": "box2",
+  "max_parallel_gpus": 80,
+  "reason": "User reserved H3_grpo (64 H20) and box_flow_grpo_1_bj (16 H20) for other work. Do not launch course jobs there until the user explicitly changes this restriction."
+}
