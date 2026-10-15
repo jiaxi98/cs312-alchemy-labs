@@ -22,6 +22,14 @@ class MemoryRun:
 
 
 class CoordinatesTest(unittest.TestCase):
+    def test_last_partial_batch_does_not_invent_extra_tokens(self):
+        run, journal = MemoryRun(), io.StringIO()
+        recorder = ScalarRecorder(run, journal, 256 * 1024, 600000 * 1024)
+        recorder.record({"optimizer_step": 2343, "train_loss": 3.0})
+        recorder.flush()
+        self.assertEqual(run.rows[0][1]["input_tokens_seen"], 614400000)
+        self.assertEqual(run.rows[0][0], 2344)
+
     def test_eval_joins_train_and_next_lr_is_labeled(self):
         run, journal = MemoryRun(), io.StringIO()
         recorder = ScalarRecorder(run, journal, 65536)

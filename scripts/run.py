@@ -121,6 +121,8 @@ def main():
     os.environ["WANDB_MODE"] = "offline"
     os.environ["WANDB_DIR"] = str(folder)
     os.environ.setdefault("OMP_NUM_THREADS", "4")
+    if selected["config"].get("deterministic"):
+        os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
     if args.tracker == "swanlab-online":
         from tracking import api_key
         if not api_key():
@@ -137,6 +139,18 @@ def main():
     import torch
     from train import TrainConfig, train
     from metric_logging import AFTER_TRAIN_STEP, MetricLogger
+
+    # Use metadata measured once on the target host. Torch 2.6 otherwise invokes
+    # nvidia-smi against physical GPU 0 in every compiler process, even with a
+    # different CUDA_VISIBLE_DEVICES, causing long initialization stalls.
+    measured_clock = os.environ.get("CS312_MAX_SM_CLOCK_MHZ")
+    if measured_clock:
+        import functools
+        import torch._utils_internal
+        clock_mhz = int(measured_clock)
+        if not 0 < clock_mhz < 10000:
+            raise ValueError("Invalid measured maximum SM clock")
+        torch._utils_internal.max_clock_rate = functools.lru_cache(None)(lambda: clock_mhz)
 
     lab_commit = verify_source(plan["upstream_commit"])
     if not args.cpu_check and torch.cuda.device_count() != 1:
@@ -163,11 +177,12 @@ def main():
         }) + "\n")
         return {}
 
-    config = TrainConfig(
-        **selected["config"], run_name_suffix=args.run_id, model_dir=folder / "checkpoints",
+    config_kwargs = dict(selected["config"])
+    config_kwargs.update(run_name_suffix=args.run_id, model_dir=folder / "checkpoints",
         wandb_online=True, wandb_entity="", wandb_project="cs312-alchemy",
-        wandb_tags=("a1", selected["group"], args.run_id), resume_from_checkpoint=False,
-    )
+        wandb_tags=tuple(dict.fromkeys(("a1", selected["group"],
+                         *selected.get("comparisons", []), args.run_id))), resume_from_checkpoint=False)
+    config = TrainConfig(**config_kwargs)
     config = replace(config, metric_loggers=config.metric_loggers + (
         MetricLogger(event=AFTER_TRAIN_STEP, fn=log_local),))
     if args.cpu_check:
@@ -194,6 +209,8 @@ def main():
         plan_sha256=hashlib.sha256(args.plan.read_bytes()).hexdigest(),
         sources=sources,
         tracker=args.tracker,
+        host=os.environ.get("CS312_HOST"), physical_gpu=os.environ.get("CUDA_VISIBLE_DEVICES"),
+        max_sm_clock_mhz=int(measured_clock) if measured_clock else None,
     )
     if args.tracker.startswith("swanlab"):
         environment["swanlab"] = version("swanlab")
@@ -209,11 +226,14 @@ def main():
         from tracking import SwanLabMirror, display_name
         tracking = SwanLabMirror(folder,
             mode=args.tracker.removeprefix("swanlab-"), project=args.swanlab_project,
-            workspace=args.swanlab_workspace, experiment_name=display_name(args.run_id, metadata),
+            workspace=args.swanlab_workspace,
+            experiment_name=selected.get("display_name") or display_name(args.run_id, metadata),
             group="a1-" + selected["group"], tags=config.wandb_tags,
             config=dict(train=metadata, provenance=environment, scope=selected["purpose"],
                         identity=dict(run_id=args.run_id, attempt=folder.name)),
-            tokens_per_step=config.batch_size * config.train_dataset.context_length)
+            tokens_per_step=config.batch_size * config.train_dataset.context_length,
+            total_input_tokens=(config.num_train_sequences * config.train_dataset.context_length
+                                if config.num_epochs == 1 else None))
     else:
         tracking = nullcontext()
     try:

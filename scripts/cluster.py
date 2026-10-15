@@ -36,7 +36,10 @@ def connection(alias, index):
 
 
 def remote(client, source, spec, timeout=55):
-    stdin, stdout, stderr = client.exec_command("python -c " + shlex.quote(source), timeout=timeout)
+    # Consume the SSH payload before running short probes, which might otherwise
+    # exit and close their channel while the caller is still writing stdin.
+    preamble = "import sys,io; _cs312_payload=sys.stdin.read(); sys.stdin=io.StringIO(_cs312_payload)\n"
+    stdin, stdout, stderr = client.exec_command("python -c " + shlex.quote(preamble + source), timeout=timeout)
     stdin.write(json.dumps(spec))
     stdin.channel.shutdown_write()
     out, err = stdout.read().decode(), stderr.read().decode()

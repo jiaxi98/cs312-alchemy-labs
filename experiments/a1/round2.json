@@ -1,0 +1,6684 @@
+{
+  "version": 1,
+  "assignment": "A1",
+  "batch": "round2",
+  "date_beijing": "2026-10-15",
+  "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+  "context_length": 1024,
+  "input_tokens_per_run": 614400000,
+  "gpu_per_run": 1,
+  "max_parallel": 160,
+  "reused_initial_runs": {
+    "a1-lr-0.003-s42": [
+      "p1-warmup",
+      "p1-weight-decay",
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.0003-s42": [
+      "p1-batch-lr"
+    ],
+    "a1-lr-0.001-s42": [
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.01-s42": [
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.03-s42": [
+      "p1-batch-lr"
+    ],
+    "a1-baseline-s43": [
+      "p1-warmup",
+      "p1-weight-decay",
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule"
+    ]
+  },
+  "runs": [
+    {
+      "id": "a1-r2-001",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup",
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-006",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-011",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.0003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-036",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-044",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-050",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · cos lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-133",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0 lr=0.001",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-142",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · linear lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-174",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-175",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-176",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-204",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=1",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-1",
+      "required_host_index": 0
+    },
+    {
+      "id": "a1-r2-212",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · batch16 · s=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-222",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=control · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": false
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-002",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.001,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-007",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.01,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-012",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-037",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-045",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-051",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · cos lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-134",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0 lr=0.003",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-143",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · linear lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-177",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-178",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-179",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-205",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=2",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-2",
+      "required_host_index": 1
+    },
+    {
+      "id": "a1-r2-213",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · lr0.009 · s=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 4,
+        "data_seed": 4,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-223",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=changed · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": true
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-003",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.05 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.05,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-008",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.03,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-013",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-038",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.01 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.01,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-046",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.1 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.1,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-052",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · cos lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-135",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0 lr=0.01",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-144",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · constant lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-180",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-181",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-182",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-206",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=3",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-3",
+      "required_host_index": 2
+    },
+    {
+      "id": "a1-r2-214",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · batch16 · s=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-224",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=control · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": false
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-004",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.1 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.1,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup",
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-009",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0.3 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.3,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-014",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.006 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-039",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.01 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.01,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-047",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.1 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.1,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-053",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · constant lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-136",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0.5 lr=0.001",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.5,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-145",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · constant lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-183",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-184",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-185",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-207",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=4",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-4",
+      "required_host_index": 3
+    },
+    {
+      "id": "a1-r2-215",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · lr0.009 · s=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 5,
+        "data_seed": 5,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-225",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=changed · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": true
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-005",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.2 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.2,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup",
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-010",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=1 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-015",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-040",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.3 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.3,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-048",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.2 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.2,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-054",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · constant lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-137",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0.5 lr=0.003",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.5,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-146",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · linear lr=0.003 drop=0.2 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-186",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-187",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-188",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-208",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=5",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-5",
+      "required_host_index": 4
+    },
+    {
+      "id": "a1-r2-216",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · batch16 · s=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-226",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=control · s=44",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 44,
+        "data_seed": 44,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": false
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-065",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup",
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-070",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-016",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-041",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.3 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.3,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-049",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.2 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.2,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-055",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · constant lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-138",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0.5 lr=0.01",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.5,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-147",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · linear lr=0.003 drop=0.2 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-189",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 9,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-190",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 9,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-191",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=9",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 9,
+        "data_seed": 9,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-209",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-6",
+      "required_host_index": 5
+    },
+    {
+      "id": "a1-r2-217",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · lr0.009 · s=6",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 6,
+        "data_seed": 6,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-227",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=changed · s=44",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 44,
+        "data_seed": 44,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": true
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-066",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.001,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-071",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.01,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-017",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.0003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-042",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=1 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-112",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-056",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.1 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.1",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-139",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0.95 lr=0.001",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.95,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-148",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · linear lr=0.03 drop=0 · s=42",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-192",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 10,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-193",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 10,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-194",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=10",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 10,
+        "data_seed": 10,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-210",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-7",
+      "required_host_index": 6
+    },
+    {
+      "id": "a1-r2-218",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · batch16 · s=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-228",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=control · s=45",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 45,
+        "data_seed": 45,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": false
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-067",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.05 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.05,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-072",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.03,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-018",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-043",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=1 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-113",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-057",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.1 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.1",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-140",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0.95 lr=0.003",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.95,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-149",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d4 · linear lr=0.03 drop=0 · s=43",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-195",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=11",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 11,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-196",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=11",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 11,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-197",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=11",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 11,
+        "data_seed": 11,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-211",
+      "group": "p3-hardware",
+      "purpose": "P3: fixed seeds across different H20 hosts; not H100/A100 comparison",
+      "display_name": "P3 same seeds · host repeat=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-hardware"
+      ],
+      "priority": 0,
+      "replica": "h20-8",
+      "required_host_index": 7
+    },
+    {
+      "id": "a1-r2-219",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · lr0.009 · s=7",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 7,
+        "data_seed": 7,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-229",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=changed · s=45",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 45,
+        "data_seed": 45,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": true
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-068",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.1 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.1,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup",
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-073",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=0.3 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.3,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-019",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-104",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-114",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.1 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.1,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-058",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.1 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.1",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-141",
+      "group": "p1-momentum",
+      "purpose": "P1c/P5: momentum, convergence and curve smoothness",
+      "display_name": "P1 momentum · β1=0.95 lr=0.01",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.95,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-momentum"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-150",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · linear lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-198",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-199",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-200",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=12",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 12,
+        "data_seed": 12,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-220",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · batch16 · s=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-230",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=control · s=46",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 46,
+        "data_seed": 46,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": false
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-069",
+      "group": "p1-warmup",
+      "purpose": "P1a: sensitivity to warmup fraction",
+      "display_name": "P1 warmup=0.2 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.2,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup",
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-074",
+      "group": "p1-weight-decay",
+      "purpose": "P1a: sensitivity to masked weight decay",
+      "display_name": "P1 wd=1 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-weight-decay",
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-020",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.006 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-105",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-115",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.1 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.1,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-059",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.2 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-151",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · linear lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-201",
+      "group": "p3-init",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 init · seed=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 13,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-init"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-202",
+      "group": "p3-data",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 data · seed=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 13,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-data"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-203",
+      "group": "p3-joint",
+      "purpose": "P3: isolate initialization vs data subset/order variability",
+      "display_name": "P3 joint · seed=13",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 13,
+        "data_seed": 13,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-joint"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-221",
+      "group": "p3-recipe-variance",
+      "purpose": "P3c: compare variability after independently changing recipe",
+      "display_name": "P3 variance · lr0.009 · s=8",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.009,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 8,
+        "data_seed": 8,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p3-recipe-variance"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-231",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=changed · s=46",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 46,
+        "data_seed": 46,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": true
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-021",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-106",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.01 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.01,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-116",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.2 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.2,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-060",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.2 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-152",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · constant lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-232",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=control · s=47",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 47,
+        "data_seed": 47,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": false
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-022",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-107",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.01 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.01,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-117",
+      "group": "p1-warmup-lr",
+      "purpose": "P1b: interaction between LR and warmup",
+      "display_name": "P1 warmup×lr · w=0.2 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.2,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-warmup-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-061",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.2 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-153",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · constant lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-233",
+      "group": "p4-token",
+      "purpose": "P4a: deterministic baseline vs one changed token at row0,pos100",
+      "display_name": "P4 token=changed · s=47",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 47,
+        "data_seed": 47,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "deterministic": true,
+        "perturb_one_token": true
+      },
+      "comparisons": [
+        "p4-token"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-023",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=64 lr=0.006 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-108",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.3 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.3,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-062",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.5 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.5",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-154",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · linear lr=0.003 drop=0.2 · s=42",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-024",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.0003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-109",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=0.3 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.3,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-063",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.5 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.5",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-155",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · linear lr=0.003 drop=0.2 · s=43",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-025",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-110",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=1 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-064",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.5 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.5",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-156",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · linear lr=0.03 drop=0 · s=42",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-026",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-111",
+      "group": "p1-wd-lr",
+      "purpose": "P1b: interaction between LR and weight decay",
+      "display_name": "P1 wd×lr · wd=1 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-wd-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-118",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · cos lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-157",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d5 · linear lr=0.03 drop=0 · s=43",
+      "config": {
+        "model_name": "d5",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-027",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.006 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-119",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · cos lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-158",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · linear lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-028",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-120",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · cos lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-159",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · linear lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-029",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-121",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · constant lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-160",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · constant lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-030",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.0003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-122",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · constant lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-161",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · constant lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-031",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.001 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-123",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · constant lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-162",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · linear lr=0.003 drop=0.2 · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-032",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.003 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-124",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.1 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.1",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-163",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · linear lr=0.003 drop=0.2 · s=43",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-033",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.006 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-125",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.1 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.1",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-164",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · linear lr=0.03 drop=0 · s=42",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-034",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.01 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-126",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.1 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.1",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-165",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d6 · linear lr=0.03 drop=0 · s=43",
+      "config": {
+        "model_name": "d6",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-035",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.03 · s=42",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-127",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.2 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-166",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · linear lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-075",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.0003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-128",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.2 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-167",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · linear lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-076",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-129",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.2 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-168",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · constant lr=0.003 drop=0 · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-077",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-130",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.5 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.5",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-169",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · constant lr=0.003 drop=0 · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-078",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.006 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-131",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.5 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.5",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-170",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · linear lr=0.003 drop=0.2 · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-079",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-132",
+      "group": "p1-schedule",
+      "purpose": "P1c: each scheduler gets the same LR search",
+      "display_name": "P1 schedule · wsd0.5 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "wsd0.5",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-171",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · linear lr=0.003 drop=0.2 · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0.2
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-080",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=16 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 16,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-172",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · linear lr=0.03 drop=0 · s=42",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-081",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.0003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-173",
+      "group": "p2-scaling-pilot",
+      "purpose": "P2a: d4-d7 fit; predict d9 before releasing larger models",
+      "display_name": "P2 d7 · linear lr=0.03 drop=0 · s=43",
+      "config": {
+        "model_name": "d7",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100,
+        "dropout": 0
+      },
+      "comparisons": [
+        "p2-scaling-pilot"
+      ],
+      "priority": 0
+    },
+    {
+      "id": "a1-r2-082",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-083",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-084",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.006 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-085",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-086",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=32 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 32,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-087",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=64 lr=0.0003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-088",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=64 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr",
+        "p1-wd-lr",
+        "p1-warmup-lr",
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-089",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=64 lr=0.006 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-090",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=64 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr",
+        "p1-wd-lr",
+        "p1-warmup-lr",
+        "p1-schedule"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-091",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=64 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-092",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.0003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-093",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-094",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-095",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.006 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-096",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-097",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=128 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 128,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-098",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.0003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-099",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.001 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-100",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.003 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-101",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.006 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.006,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-102",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.01 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.01,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "a1-r2-103",
+      "group": "p1-batch-lr",
+      "purpose": "P1b: LR and batch at fixed model and input tokens",
+      "display_name": "P1 batch×lr · b=256 lr=0.03 · s=43",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.03,
+        "num_train_sequences": 600000,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 43,
+        "data_seed": 43,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 100
+      },
+      "comparisons": [
+        "p1-batch-lr"
+      ],
+      "priority": 1
+    }
+  ],
+  "held_out": {
+    "depths": [
+      8,
+      9
+    ],
+    "released": false,
+    "note": "d8 default already observed; only d9 is blind. Release after smaller-scale predictions."
+  },
+  "limitations": [
+    "constant scheduler ignores warmup in upstream; this is the course's literal recipe",
+    "P1 fixes parameter count × input tokens, not wall time or steps",
+    "batch128/256 has a smaller final batch; accumulated input-token axis is capped",
+    "hardware repeats all use H20; no claim of H100/A100 cross-architecture coverage",
+    "P4 tests only first-token perturbation, not the entire later-time intervention task",
+    "P5/P6 reuse all recorded curves and RMS diagnostics"
+  ]
+}

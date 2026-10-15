@@ -45,10 +45,11 @@ def display_name(run_id, config):
 
 class ScalarRecorder:
     """Combine train/validation records for the same completed optimizer step."""
-    def __init__(self, run, journal, tokens_per_step):
+    def __init__(self, run, journal, tokens_per_step, total_input_tokens=None):
         self.run = run
         self.journal = journal
         self.tokens_per_step = tokens_per_step
+        self.total_input_tokens = total_input_tokens
         self.step = None
         self.pending = {}
         self.nonfinite = False
@@ -80,8 +81,10 @@ class ScalarRecorder:
     def flush(self):
         if self.step is None or not self.pending:
             return
-        row = {"completed_steps": self.step,
-               "input_tokens_seen": self.step * self.tokens_per_step, **self.pending}
+        tokens = self.step * self.tokens_per_step
+        if self.total_input_tokens is not None:
+            tokens = min(tokens, self.total_input_tokens)
+        row = {"completed_steps": self.step, "input_tokens_seen": tokens, **self.pending}
         self.journal.write(json.dumps(row, allow_nan=False) + "\n")
         self.journal.flush()
         # Preserve missing/nonfinite values in the journal; don't invent a finite loss.
@@ -91,7 +94,7 @@ class ScalarRecorder:
 
 class SwanLabMirror:
     def __init__(self, folder, *, mode, project, workspace, experiment_name, group,
-                 tags, config, tokens_per_step):
+                 tags, config, tokens_per_step, total_input_tokens=None):
         self.folder = Path(folder)
         self.mode = mode
         self.init_args = dict(project=project, workspace=workspace,
@@ -99,6 +102,7 @@ class SwanLabMirror:
             config=serializable(config), mode=mode, public=False,
             logdir=str(self.folder / "swanlog"))
         self.tokens_per_step = tokens_per_step
+        self.total_input_tokens = total_input_tokens
         self.run = None
         self.recorder = None
         self.journal = None
@@ -124,7 +128,7 @@ class SwanLabMirror:
                        mode=self.mode, log_dir=str(self.run.dir))
         (self.folder / "swanlab.json").write_text(json.dumps(receipt, indent=2) + "\n")
         self.journal = (self.folder / "metrics.jsonl").open("a", buffering=1)
-        self.recorder = ScalarRecorder(self.run, self.journal, self.tokens_per_step)
+        self.recorder = ScalarRecorder(self.run, self.journal, self.tokens_per_step, self.total_input_tokens)
         self.original_init, self.original_log = wandb.init, Run.log
 
         def init(*args, **kwargs):

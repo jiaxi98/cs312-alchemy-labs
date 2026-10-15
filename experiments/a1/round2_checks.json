@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "assignment": "A1",
+  "batch": "round2-checks",
+  "date_beijing": "2026-10-15",
+  "upstream_commit": "baafc3f2d364e5ddbba75f0fe8d1cb29326920e5",
+  "context_length": 1024,
+  "input_tokens_per_run": 614400000,
+  "gpu_per_run": 1,
+  "max_parallel": 160,
+  "reused_initial_runs": {
+    "a1-lr-0.003-s42": [
+      "p1-warmup",
+      "p1-weight-decay",
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.0003-s42": [
+      "p1-batch-lr"
+    ],
+    "a1-lr-0.001-s42": [
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.01-s42": [
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule",
+      "p1-momentum"
+    ],
+    "a1-lr-0.03-s42": [
+      "p1-batch-lr"
+    ],
+    "a1-baseline-s43": [
+      "p1-warmup",
+      "p1-weight-decay",
+      "p1-batch-lr",
+      "p1-wd-lr",
+      "p1-warmup-lr",
+      "p1-schedule"
+    ]
+  },
+  "runs": [
+    {
+      "id": "r2-check-batch256",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 batch256",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.0003,
+        "num_train_sequences": 2050,
+        "batch_size": 256,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-dropout",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 dropout",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "dropout": 0.2,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-deterministic",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 deterministic",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "deterministic": true,
+        "perturb_one_token": false,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-perturb",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 perturb",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "deterministic": true,
+        "perturb_one_token": true,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-constant",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 constant",
+      "config": {
+        "model_name": "d4",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "constant",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "dropout": 0,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-wsd",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 wsd",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "wsd0.2",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-cos",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 cos",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.001,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "cos",
+        "warmup_percent": 0.01,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    },
+    {
+      "id": "r2-check-ordinary",
+      "group": "setup",
+      "purpose": "round2 compatibility check, not formal result",
+      "display_name": "R2 check \u00b7 ordinary",
+      "config": {
+        "model_name": "d8",
+        "learning_rate": 0.003,
+        "num_train_sequences": 2048,
+        "batch_size": 64,
+        "num_micro_batches": 1,
+        "num_epochs": 1.0,
+        "model_seed": 42,
+        "data_seed": 42,
+        "lr_schedule": "linear",
+        "warmup_percent": 0,
+        "weight_decay": 0.1,
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "grad_norm": 1.0,
+        "precision": "mp",
+        "num_evals": 2,
+        "latest_checkpoint_frequency": null,
+        "save_model": false
+      }
+    }
+  ],
+  "held_out": {
+    "depths": [
+      8,
+      9
+    ],
+    "released": false,
+    "note": "d8 default already observed; only d9 is blind. Release after smaller-scale predictions."
+  },
+  "limitations": [
+    "constant scheduler ignores warmup in upstream; this is the course's literal recipe",
+    "P1 fixes parameter count \u00d7 input tokens, not wall time or steps",
+    "batch128/256 has a smaller final batch; accumulated input-token axis is capped",
+    "hardware repeats all use H20; no claim of H100/A100 cross-architecture coverage",
+    "P4 tests only first-token perturbation, not the entire later-time intervention task",
+    "P5/P6 reuse all recorded curves and RMS diagnostics"
+  ]
+}
