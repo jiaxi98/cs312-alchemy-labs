@@ -1,0 +1,27 @@
+{
+  "cloud_state": "FINISHED",
+  "run_id": "960r1pnt",
+  "url": "https://swanlab.cn/@jiaxi98/cs312-alchemy-labs/runs/960r1pnt/chart",
+  "metric_counts": {
+    "train_loss": 9375,
+    "val_loss": 100,
+    "logging/rms/global/gradient": 94
+  },
+  "final": {
+    "train_loss": {
+      "step": 9375,
+      "value": 2.884608030319214,
+      "timestamp": 1792052572000
+    },
+    "val_loss": {
+      "step": 9375,
+      "value": 2.926745891571045,
+      "timestamp": 1792052572000
+    },
+    "logging/rms/global/gradient": {
+      "step": 9301,
+      "value": 2.260701876366511e-05,
+      "timestamp": 1792052557000
+    }
+  }
+}

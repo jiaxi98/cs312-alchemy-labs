@@ -1,0 +1,130 @@
+[
+  {
+    "run_id": "a1-lr-0.003-s42",
+    "state": "FINISHED",
+    "latest": {
+      "train_loss": {
+        "index": 9375,
+        "data": 2.884608030319214,
+        "timestamp": 1792052572000
+      },
+      "val_loss": {
+        "index": 9375,
+        "data": 2.926745891571045,
+        "timestamp": 1792052572000
+      }
+    }
+  },
+  {
+    "run_id": "a1-baseline-s43",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 657,
+        "data": 3.5333170890808105,
+        "timestamp": 1792052816000
+      },
+      "val_loss": {
+        "index": 564,
+        "data": 3.680400848388672,
+        "timestamp": 1792052802000
+      }
+    }
+  },
+  {
+    "run_id": "a1-baseline-s44",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 979,
+        "data": 3.479546546936035,
+        "timestamp": 1792052818000
+      },
+      "val_loss": {
+        "index": 940,
+        "data": 3.5045318603515625,
+        "timestamp": 1792052812000
+      }
+    }
+  },
+  {
+    "run_id": "a1-lr-0.0001-s42",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 657,
+        "data": 4.540664196014404,
+        "timestamp": 1792052815000
+      },
+      "val_loss": {
+        "index": 564,
+        "data": 4.671806812286377,
+        "timestamp": 1792052800000
+      }
+    }
+  },
+  {
+    "run_id": "a1-lr-0.0003-s42",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 657,
+        "data": 4.121217727661133,
+        "timestamp": 1792052815000
+      },
+      "val_loss": {
+        "index": 564,
+        "data": 4.228194713592529,
+        "timestamp": 1792052801000
+      }
+    }
+  },
+  {
+    "run_id": "a1-lr-0.001-s42",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 657,
+        "data": 3.689119338989258,
+        "timestamp": 1792052816000
+      },
+      "val_loss": {
+        "index": 564,
+        "data": 3.812023162841797,
+        "timestamp": 1792052801000
+      }
+    }
+  },
+  {
+    "run_id": "a1-lr-0.01-s42",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 701,
+        "data": 3.7196645736694336,
+        "timestamp": 1792052818000
+      },
+      "val_loss": {
+        "index": 658,
+        "data": 3.784735918045044,
+        "timestamp": 1792052811000
+      }
+    }
+  },
+  {
+    "run_id": "a1-lr-0.03-s42",
+    "state": "RUNNING",
+    "latest": {
+      "train_loss": {
+        "index": 721,
+        "data": 4.125757217407227,
+        "timestamp": 1792052819000
+      },
+      "val_loss": {
+        "index": 658,
+        "data": 4.2444891929626465,
+        "timestamp": 1792052809000
+      }
+    }
+  }
+]
